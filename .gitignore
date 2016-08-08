@@ -54,3 +54,4 @@ build
 /bower_components
 *.suo
 /typings
+/.tmp/serve
