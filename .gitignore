@@ -55,3 +55,4 @@ build
 *.suo
 /typings
 /.tmp/serve
+/.vs/config

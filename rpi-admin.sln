@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "rpi-admin", "..\rpi-admin.njsproj", "{F782AEE9-A78C-48F4-99DE-EF08962C1578}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "rpi-admin", "rpi-admin.njsproj", "{F782AEE9-A78C-48F4-99DE-EF08962C1578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
