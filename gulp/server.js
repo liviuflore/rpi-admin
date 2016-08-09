@@ -33,7 +33,7 @@ function browserSyncInit(baseDir, browser) {
             handle: function (req, res, next) {
                 // handle any requests at /api
                 gutil.log("debug test");
-                gutil.log(req);
+                gutil.log(req.url);
             }
         }
     ]
