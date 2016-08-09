@@ -6,12 +6,14 @@
     <ProjectGuid>{f782aee9-a78c-48f4-99de-ef08962c1578}</ProjectGuid>
     <ProjectHome>.\</ProjectHome>
     <ProjectView>ShowAllFiles</ProjectView>
-    <StartupFile>gulpfile.js</StartupFile>
+    <StartupFile>node_modules\gulp\bin\gulp.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ScriptArguments>serve</ScriptArguments>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -62,6 +64,7 @@
     <Content Include="docs\contents\articles\014-switch-to-blur-theme\index.md" />
     <Content Include="docs\contents\articles\051-sidebar\index.md" />
     <Content Include="docs\contents\articles\091-downloads\index.md" />
+    <Compile Include="server\index.js" />
     <Compile Include="src\app\app.js" />
     <Content Include="src\sass\README.md" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
@@ -429,6 +432,7 @@
     <Folder Include="docs\plugins" />
     <Folder Include="docs\templates" />
     <Folder Include="gulp" />
+    <Folder Include="server\" />
     <Folder Include="src" />
     <Folder Include="src\app" />
     <Folder Include="src\app\pages" />
@@ -547,6 +551,7 @@
     <Folder Include="typings\globals\del\" />
     <Folder Include="typings\globals\estraverse\" />
     <Folder Include="typings\globals\gulp-autoprefixer\" />
+    <Folder Include="typings\globals\gulp-debug\" />
     <Folder Include="typings\globals\gulp-filter\" />
     <Folder Include="typings\globals\gulp-flatten\" />
     <Folder Include="typings\globals\gulp-gh-pages\" />
@@ -580,6 +585,7 @@
     <TypeScriptCompile Include="typings\globals\del\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\estraverse\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-autoprefixer\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\gulp-debug\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-filter\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-flatten\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-gh-pages\index.d.ts" />

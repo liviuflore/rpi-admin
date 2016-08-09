@@ -56,3 +56,6 @@ build
 /typings
 /.tmp/serve
 /.vs/config
+/obj/Debug/rpi-admin.njsprojResolveAssemblyReference.cache
+/obj/Debug/rpi-admin.njsproj.FileListAbsolute.txt
+/.tmp/partials

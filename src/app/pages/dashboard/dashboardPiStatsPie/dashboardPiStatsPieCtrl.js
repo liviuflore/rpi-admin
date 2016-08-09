@@ -2,6 +2,7 @@
  * @author v.lugovksy
  * created on 16.12.2015
  */
+
 (function () {
   'use strict';
 
@@ -9,26 +10,34 @@
       .controller('dashboardPiStatsPieCtrl', dashboardPiStatsPieCtrl);
 
   /** @ngInject */
-  function dashboardPiStatsPieCtrl($scope, $timeout, baConfig, baUtil) {
-    var pieColor = baUtil.hexToRGB(baConfig.colors.defaultText, 0.2);
+  function dashboardPiStatsPieCtrl($scope, $http, $timeout, baConfig, baUtil) {
+      var pieColor = baUtil.hexToRGB(baConfig.colors.defaultText, 0.2);
+      var stats = function () {
+          $http.get("/api/cpustats").success(function (data) {
+              return data;
+          }).error(function () {
+              //alert("unexpected error!");
+          });
+      }
+      $scope.stats = stats();
     $scope.charts = [{
       color: pieColor,
-      description: 'New Visits',
+      description: 'Temp',
       stats: '57,820',
       icon: 'person',
     }, {
       color: pieColor,
-      description: 'Purchases',
-      stats: '$ 89,745',
+      description: 'CPU freq',
+      stats: 'xxx',
       icon: 'money',
     }, {
       color: pieColor,
-      description: 'Active Users',
+      description: 'CPU Load',
       stats: '178,391',
       icon: 'face',
     }, {
       color: pieColor,
-      description: 'Returned',
+      description: 'RAM',
       stats: '32,592',
       icon: 'refresh',
     }

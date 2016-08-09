@@ -2,6 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var conf = require('./conf');
 
 var browserSync = require('browser-sync');
@@ -9,7 +10,7 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-var proxyMiddleware = require('http-proxy-middleware');
+//var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
@@ -20,11 +21,21 @@ function browserSyncInit(baseDir, browser) {
       '/bower_components': 'bower_components'
     };
   }
-
-  var server = {
-    baseDir: baseDir,
-    routes: routes
-  };
+  gutil.log("debug test init browserSync");
+    var server = {
+        baseDir: baseDir,
+        routes: routes,
+        middleware: [
+            {
+                route: "/api",
+                handle: function (req, res, next) {
+                    // handle any requests at /api
+                    gutil.log("debug test");
+                    gutil.log(req);
+                }
+            }
+        ]
+    };
 
   /*
    * You can add a proxy to your backend by uncommenting the line below.
@@ -33,7 +44,7 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
+   //server.middleware = proxyMiddleware('/api', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
 
   browserSync.instance = browserSync.init({
     startPath: '/',

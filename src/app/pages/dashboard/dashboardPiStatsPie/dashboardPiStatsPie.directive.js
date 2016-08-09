@@ -2,6 +2,9 @@
  * @author v.lugovksy
  * created on 16.12.2015
  */
+
+//var os = require('os');
+
 (function () {
   'use strict';
 
@@ -13,7 +16,8 @@
     return {
       restrict: 'E',
       controller: 'dashboardPiStatsPieCtrl',
-      templateUrl: 'app/pages/dashboard/dashboardPiStatsPie/dashboardPiStatsPie.html'
+      templateUrl: 'app/pages/dashboard/dashboardPiStatsPie/dashboardPiStatsPie.html',
+      data: 'xxx'
     };
   }
 })();
