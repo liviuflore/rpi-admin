@@ -13,29 +13,31 @@ var util = require('util');
 //var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
-  browser = browser === undefined ? 'default' : browser;
+    browser = browser === undefined ? 'default' : browser;
 
-  var routes = null;
-  if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
-    routes = {
-      '/bower_components': 'bower_components'
-    };
-  }
-  gutil.log("debug test init browserSync");
+    var routes = null;
+    if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
+        routes = {
+            '/bower_components': 'bower_components'
+        };
+    }
+
     var server = {
         baseDir: baseDir,
         routes: routes,
-        middleware: [
-            {
-                route: "/api",
-                handle: function (req, res, next) {
-                    // handle any requests at /api
-                    gutil.log("debug test");
-                    gutil.log(req);
-                }
-            }
-        ]
     };
+
+    var middleware = [
+        {
+            route: "/api",
+            handle: function (req, res, next) {
+                // handle any requests at /api
+                gutil.log("debug test");
+                gutil.log(req);
+            }
+        }
+    ]
+
 
   /*
    * You can add a proxy to your backend by uncommenting the line below.
@@ -49,6 +51,7 @@ function browserSyncInit(baseDir, browser) {
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
+    middleware: middleware,
     browser: browser,
     ghostMode: false
   });
