@@ -64,7 +64,7 @@
     <Content Include="docs\contents\articles\014-switch-to-blur-theme\index.md" />
     <Content Include="docs\contents\articles\051-sidebar\index.md" />
     <Content Include="docs\contents\articles\091-downloads\index.md" />
-    <Compile Include="server\index.js" />
+    <Compile Include="middleware\main.js" />
     <Compile Include="src\app\app.js" />
     <Content Include="src\sass\README.md" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
@@ -432,7 +432,7 @@
     <Folder Include="docs\plugins" />
     <Folder Include="docs\templates" />
     <Folder Include="gulp" />
-    <Folder Include="server\" />
+    <Folder Include="middleware\" />
     <Folder Include="src" />
     <Folder Include="src\app" />
     <Folder Include="src\app\pages" />
@@ -550,6 +550,7 @@
     <Folder Include="typings\globals\chalk\" />
     <Folder Include="typings\globals\del\" />
     <Folder Include="typings\globals\estraverse\" />
+    <Folder Include="typings\globals\express\" />
     <Folder Include="typings\globals\gulp-autoprefixer\" />
     <Folder Include="typings\globals\gulp-debug\" />
     <Folder Include="typings\globals\gulp-filter\" />
@@ -560,6 +561,7 @@
     <Folder Include="typings\globals\gulp-minify-css\" />
     <Folder Include="typings\globals\gulp-minify-html\" />
     <Folder Include="typings\globals\gulp-ng-annotate\" />
+    <Folder Include="typings\globals\gulp-nodemon\" />
     <Folder Include="typings\globals\gulp-protractor\" />
     <Folder Include="typings\globals\gulp-rename\" />
     <Folder Include="typings\globals\gulp-replace\" />
@@ -584,6 +586,7 @@
     <TypeScriptCompile Include="typings\globals\chalk\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\del\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\estraverse\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-autoprefixer\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-debug\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-filter\index.d.ts" />
@@ -594,6 +597,7 @@
     <TypeScriptCompile Include="typings\globals\gulp-minify-css\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-minify-html\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-ng-annotate\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\gulp-nodemon\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-protractor\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-rename\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-replace\index.d.ts" />

@@ -10,7 +10,9 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-//var proxyMiddleware = require('http-proxy-middleware');
+var express = require('express');
+var middlewareapp = express();
+require('../middleware/main.js')(middlewareapp);
 
 function browserSyncInit(baseDir, browser) {
     browser = browser === undefined ? 'default' : browser;
@@ -31,30 +33,18 @@ function browserSyncInit(baseDir, browser) {
         {
             route: "/api",
             handle: function (req, res, next) {
-                // handle any requests at /api
-                gutil.log("debug test");
-                gutil.log(req.url);
+                middlewareapp(req, res);                // handle any requests at /api
             }
         }
     ]
 
-
-  /*
-   * You can add a proxy to your backend by uncommenting the line below.
-   * You just have to configure a context which will we redirected and the target url.
-   * Example: $http.get('/users') requests will be automatically proxified.
-   *
-   * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
-   */
-   //server.middleware = proxyMiddleware('/api', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
-
-  browserSync.instance = browserSync.init({
-    startPath: '/',
-    server: server,
-    middleware: middleware,
-    browser: browser,
-    ghostMode: false
-  });
+    browserSync.instance = browserSync.init({
+        startPath: '/',
+        server: server,
+        middleware: middleware,
+        browser: browser,
+        ghostMode: false
+    });
 }
 
 browserSync.use(browserSyncSpa({
@@ -66,7 +56,7 @@ gulp.task('serve', ['watch'], function () {
 });
 
 gulp.task('serve:dist', ['build'], function () {
-  browserSyncInit(conf.paths.dist);
+  browserSyncInit(conf.paths.dist, "google chrome");
 });
 
 gulp.task('serve:e2e', ['inject'], function () {
@@ -76,3 +66,4 @@ gulp.task('serve:e2e', ['inject'], function () {
 gulp.task('serve:e2e-dist', ['build'], function () {
   browserSyncInit(conf.paths.dist, []);
 });
+
