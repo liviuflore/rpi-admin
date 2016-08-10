@@ -578,6 +578,7 @@
     <Folder Include="typings\globals\lodash\" />
     <Folder Include="typings\globals\main-bower-files\" />
     <Folder Include="typings\globals\node\" />
+    <Folder Include="typings\globals\socket.io\" />
     <Folder Include="typings\globals\wiredep\" />
     <Folder Include="typings\globals\wrench\" />
   </ItemGroup>
@@ -614,6 +615,7 @@
     <TypeScriptCompile Include="typings\globals\lodash\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\main-bower-files\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\socket.io\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\wiredep\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\wrench\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />

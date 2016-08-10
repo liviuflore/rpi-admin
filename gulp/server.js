@@ -11,8 +11,8 @@ var browserSyncSpa = require('browser-sync-spa');
 var util = require('util');
 
 var express = require('express');
-var middlewareapp = express();
-require('../middleware/main.js')(middlewareapp);
+var apimiddleware = express();
+require('../middleware/main.js')(apimiddleware);
 
 function browserSyncInit(baseDir, browser) {
     browser = browser === undefined ? 'default' : browser;
@@ -33,7 +33,7 @@ function browserSyncInit(baseDir, browser) {
         {
             route: "/api",
             handle: function (req, res, next) {
-                middlewareapp(req, res);                // handle any requests at /api
+                apimiddleware(req, res);                // handle any requests at /api
             }
         }
     ]

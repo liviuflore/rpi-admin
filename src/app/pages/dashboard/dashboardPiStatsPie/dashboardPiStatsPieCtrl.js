@@ -10,42 +10,26 @@
       .controller('dashboardPiStatsPieCtrl', dashboardPiStatsPieCtrl);
 
   /** @ngInject */
-  function dashboardPiStatsPieCtrl($scope, $http, $timeout, baConfig, baUtil) {
-      var pieColor = baUtil.hexToRGB(baConfig.colors.defaultText, 0.2);
-      var stats = function () {
-          $http.get("/api/cpustats").success(function (data) {
-              return data;
-          }).error(function () {
-              //alert("unexpected error!");
-          });
-      }
-      $scope.stats = stats();
+function dashboardPiStatsPieCtrl($scope, $http, $timeout, baConfig, baUtil) {
+    var pieColor = baUtil.hexToRGB(baConfig.colors.defaultText, 0.2);
     $scope.charts = [{
-      color: pieColor,
-      description: 'Temp',
-      stats: '57,820',
-      icon: 'person',
+        color: pieColor,
+        description: 'Temp',
+        stats: '',
     }, {
-      color: pieColor,
-      description: 'CPU freq',
-      stats: 'xxx',
-      icon: 'money',
+        color: pieColor,
+        description: 'CPU freq',
+        stats: '',
     }, {
-      color: pieColor,
-      description: 'CPU Load',
-      stats: '178,391',
-      icon: 'face',
+        color: pieColor,
+        description: 'CPU Load',
+        stats: '',
     }, {
-      color: pieColor,
-      description: 'RAM',
-      stats: '32,592',
-      icon: 'refresh',
+        color: pieColor,
+        description: 'RAM',
+        stats: '',
     }
     ];
-
-    function getRandomArbitrary(min, max) {
-      return Math.random() * (max - min) + min;
-    }
 
     function loadPieCharts() {
       $('.chart').each(function () {
@@ -70,10 +54,24 @@
       });
     }
 
+    function getPercent(value, max) {
+        return (value / max) * 100;
+    }
     function updatePieCharts() {
-      $('.pie-charts .chart').each(function(index, chart) {
-        $(chart).data('easyPieChart').update(getRandomArbitrary(55, 90));
-      });
+        $http.get("/api/cpustats").success(function (data) {
+            $('.pie-charts .chart').each(function (index, chart) {
+                var value = 0;
+                var statval = "xxx";
+                if (index == 0) { value = getPercent(data.cpuTemp, 90); statval = data.cpuTemp + ' &deg;C'; };
+                if (index == 1) { value = getPercent(data.cpuFreq, data.cpuFreqMax); statval = data.cpuFreq + ' MHz'; };
+                if (index == 2) { value = data.cpuLoad; statval = data.cpuLoad + ' %'; };
+                if (index == 3) { value = getPercent(data.ramUsed, data.ramTotal); statval = data.ramUsed + ' MB'; };
+                $(chart).data('easyPieChart').update(value);
+                $('.description-stats')[index].innerHTML = statval;
+            });
+        }).error(function () {
+            //alert("unexpected error!");
+        });
     }
 
     $timeout(function () {

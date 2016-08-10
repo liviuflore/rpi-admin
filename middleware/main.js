@@ -15,6 +15,6 @@ module.exports = function (app) {
     });
 
     app.get('/cpustats', function (req, res) {
-        gutil.log("debug test cpustats");
+        res.json({ cpuTemp: 55, cpuFreq: 1000, cpuFreqMax: 1200, cpuLoad: 10, ramUsed: 10, ramTotal: 20 });
     });
 };
