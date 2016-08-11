@@ -10,9 +10,12 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
+// api middleware
 var express = require('express');
 var apimiddleware = express();
-require('../middleware/main.js')(apimiddleware);
+var apirouter = require('../middleware/api.js');
+apimiddleware.use('/', apirouter);
+
 
 function browserSyncInit(baseDir, browser) {
     browser = browser === undefined ? 'default' : browser;
