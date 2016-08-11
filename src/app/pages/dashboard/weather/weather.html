@@ -2,7 +2,7 @@
   <div class="weather-main-info">
     <h5 class="city-date font-x1dot5">
       <div>
-        {{geoData.geoplugin_city}} - {{geoData.geoplugin_countryName | uppercase}}
+        {{geoData.geoplugin_city}}<!-- - {{geoData.geoplugin_countryName | uppercase}}-->
       </div>
       <div>
         {{ weather.days[weather.current].date | date : 'EEEE h:mm'}}
@@ -34,7 +34,7 @@
       </div>
       <div>
         <i class="weatherIcon font-x2 {{weatherIcons[day.icon]}}"></i></td>
-        <span class="select-day-info">{{day.main}}</span>
+        <!--<span class="select-day-info">{{day.main}}</span>-->
       </div>
       <div>
         <span>{{day.date | date : 'EEE'}}</span>

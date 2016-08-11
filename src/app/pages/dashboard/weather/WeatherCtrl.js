@@ -115,7 +115,7 @@
           main: firstItem.weather[0].main,
           description: firstItem.weather[0].description,
           icon: firstItem.weather[0].icon,
-          temp: firstItem.main.temp
+          temp: Math.round(firstItem.main.temp)
         }], current: 0
       };
       data.list.forEach(function (item, i) {
@@ -126,13 +126,13 @@
         var lastItem = weather.days[weather.days.length - 1];
         lastItem.timeTemp.push({
           time: itemDate.getHours(),
-          temp: item.main.temp
+          temp: Math.round(item.main.temp)
         });
         if ((weather.days.length > 1 && itemDate.getHours() == middleOfTheDay) || i == data.list.length - 1) {
           lastItem.main = item.weather[0].main;
           lastItem.description = item.weather[0].description;
           lastItem.icon = item.weather[0].icon;
-          lastItem.temp = item.main.temp;
+          lastItem.temp = Math.round(item.main.temp);
           lastItem.date.setHours(i == data.list.length - 1 ? 0 : middleOfTheDay);
           lastItem.date.setMinutes(0);
         }
