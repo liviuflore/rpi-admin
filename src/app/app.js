@@ -13,6 +13,7 @@ angular.module('BlurAdmin', [
   'ngJsTree',
   'angular-progress-button-styles',
 
+  'BlurAdmin.config',
   'BlurAdmin.theme',
   'BlurAdmin.pages'
 ]);

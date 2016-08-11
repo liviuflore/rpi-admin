@@ -9,12 +9,12 @@
       .controller('WeatherCtrl', WeatherCtrl);
 
   /** @ngInject */
-  function WeatherCtrl($scope, $http, $timeout, $element) {
+  function WeatherCtrl($scope, $http, $timeout, $element, WEATHER_CONFIG) {
     var url = 'http://api.openweathermap.org/data/2.5/forecast';
     var method = 'GET';
-    var key = '5dd5db267b647d988b1293d998231b35';
-    var middleOfTheDay = 15;
-    $scope.units = 'metric';
+    var key = WEATHER_CONFIG.APIKEY;
+    var middleOfTheDay = WEATHER_CONFIG.MIDDLEOFDAY;
+    $scope.units = WEATHER_CONFIG.UNITS;
     $scope.weatherIcons = {
       '01d': 'ion-ios-sunny-outline',
       '02d': 'ion-ios-partlysunny-outline',
