@@ -38,6 +38,10 @@ function browserSyncInit(baseDir, browser) {
             handle: function (req, res, next) {
                 apimiddleware(req, res);                // handle any requests at /api
             }
+        },
+        function (req, res, next) {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            next();
         }
     ]
 
