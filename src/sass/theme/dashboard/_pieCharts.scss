@@ -30,9 +30,6 @@
     .pie-chart-item-container { width: 100%; }
     .pie-chart-noicon-item-container { width: 50%; }
   }
-  @media screen and (max-width: 400px)  {
-    .pie-chart-noicon-item-container { width: 100%; }
-  }
 
   .pie-chart-item,
   .pie-chart-noicon-item {
