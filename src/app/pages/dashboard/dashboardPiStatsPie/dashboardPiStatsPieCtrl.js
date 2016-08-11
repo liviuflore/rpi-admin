@@ -58,7 +58,7 @@ function dashboardPiStatsPieCtrl($scope, $http, $timeout, baConfig, baUtil) {
         return (value / max) * 100;
     }
     function updatePieCharts() {
-        $http.get("/api/cpustats").success(function (data) {
+        $http.get("/api/system/cpustats").success(function (data) {
             $('.pie-charts .chart').each(function (index, chart) {
                 var value = 0;
                 var statval = "xxx";

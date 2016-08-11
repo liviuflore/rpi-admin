@@ -68,6 +68,7 @@
     <Content Include="docs\contents\articles\091-downloads\index.md" />
     <Compile Include="middleware\api.js" />
     <Compile Include="middleware\osutils.js" />
+    <Compile Include="middleware\system.js" />
     <Compile Include="src\app\app.js" />
     <Content Include="src\sass\README.md" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
