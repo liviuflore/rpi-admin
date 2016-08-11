@@ -9,11 +9,14 @@
       .controller('WeatherCtrl', WeatherCtrl);
 
   /** @ngInject */
-  function WeatherCtrl($scope, $http, $timeout, $element, WEATHER_CONFIG) {
+  function WeatherCtrl($scope, $http, $timeout, $element, WEATHER_CONFIG, baConfig, baUtil) {
     var url = 'http://api.openweathermap.org/data/2.5/forecast';
     var method = 'GET';
     var key = WEATHER_CONFIG.APIKEY;
     var middleOfTheDay = WEATHER_CONFIG.MIDDLEOFDAY;
+    var layoutColors = baConfig.colors;
+    var graphColor = baConfig.theme.blur ? '#000000' : layoutColors.primary;
+
     $scope.units = WEATHER_CONFIG.UNITS;
     $scope.weatherIcons = {
       '01d': 'ion-ios-sunny-outline',
@@ -90,13 +93,15 @@
         ],
         graphs: [
           {
-            bullet: 'square',
-            fillAlphas: 0.3,
+            bullet: 'none',
+            useLineColorForBulletBorder: true,
+            lineColor: baUtil.hexToRGB(graphColor, 0.3),
+            lineThickness: 1,
+            negativeLineColor: layoutColors.danger,
+            type: 'smoothedLine',
+            valueField: 'temp',
+            fillAlphas: 1,
             fillColorsField: 'lineColor',
-            legendValueText: '[[value]]',
-            lineColorField: 'lineColor',
-            title: 'Temp',
-            valueField: 'temp'
           }
         ],
         categoryAxis: {
@@ -137,7 +142,7 @@
           lastItem.date.setMinutes(0);
         }
       });
-      console.log(weather.days[weather.current].date);
+      //console.log(weather.days[weather.current].date);
       weather.days = weather.days.slice(0, $element.attr('forecast') || 5);
       $scope.weather = weather;
     }

@@ -2,7 +2,7 @@
   <div class="weather-main-info">
     <h5 class="city-date font-x1dot5">
       <div>
-        {{geoData.geoplugin_city}}<!-- - {{geoData.geoplugin_countryName | uppercase}}-->
+        {{geoData.geoplugin_city}} - {{geoData.geoplugin_countryCode | uppercase}}
       </div>
       <div>
         {{ weather.days[weather.current].date | date : 'EEEE h:mm'}}
