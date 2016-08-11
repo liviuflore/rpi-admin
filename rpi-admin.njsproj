@@ -74,6 +74,7 @@
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPieCtrl.js" />
     <Compile Include="src\app\pages\pages.module.js" />
+    <Compile Include="src\app\services.js" />
     <Compile Include="src\app\theme\theme.config.js" />
     <Compile Include="src\app\theme\theme.configProvider.js" />
     <Compile Include="src\app\theme\theme.constants.js" />
