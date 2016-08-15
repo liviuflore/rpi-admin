@@ -51,7 +51,8 @@
                 console.log("get torrents");
                 return runRequest('/api/transmission/torrents');
             },
-            deleteTorrents: function (list, deleteData = false) {
+            deleteTorrents: function (list, deleteData) {
+                if (typeof deleteData == 'undefined') deleteData = false;
                 console.log("delete torrents " + list);
                 return runRequest('/api/transmission/delete_torrents/' + (list.length == 0 ? 'none' : list) + '/' + deleteData);
             },
