@@ -18,6 +18,7 @@
             vm.torrent = torrentsList.filterById(torrents, $stateParams.id);
         });
     };
+    vm.label = $stateParams.label;
     $scope.LoadTorrent();
 
   }
