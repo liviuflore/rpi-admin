@@ -10,11 +10,34 @@
 </div>
 <div>
   <input type="text" class="form-control compose-input default-color"  placeholder="Enter magnet link" ng-model="boxCtrl.magnet">
-  <button type="button" ng-click="$dismiss()" class="btn btn-send">or choose .torrent file</button>
+  <!--<button type="button" ng-click="$dismiss()" class="btn btn-send">or choose .torrent file</button>-->
+  <div class="add-torrent-container">
+    <div class="add-torrent-header">Download location:</div>
+    <br />
+    <div class="torrent-location">
+      <select class="form-control selectpicker with-search" data-live-search="true" title="Select With Search" selectpicker
+              ng-model="selectpickerVm.searchSelectedItem"
+              ng-options="item as item.label for item in selectpickerVm.selectWithSearchItems"></select>
+    </div>
+    <br />
+    <div class="torrent-options">
+      <label class="checkbox-inline custom-checkbox nowrap">
+        <input type="checkbox" /> <!--ng-model="selectAll" ng-click="ToggleSelectAll()">-->
+        <span class="checkbox-label">Start automatically</span>
+      </label>
+    </div>
+    <br />
+    <div class="torrent-options">
+      <label class="checkbox-inline custom-checkbox nowrap">
+        <input type="checkbox" /> <!--ng-model="selectAll" ng-click="ToggleSelectAll()">-->
+        <span class="checkbox-label">Delete torrent file after adding</span>
+      </label>
+    </div>
+  </div>
 </div>
 <div class="compose-footer clearfix">
   <button type="button" ng-click="$dismiss()" class="btn btn-send">Add</button>
-  <text-angular-toolbar ta-toolbar-class="toolbarFooter" name="toolbarFooter" ta-toolbar="[['insertLink', 'insertImage', 'html', 'quote','insertVideo']]"></text-angular-toolbar>
+  <!--<text-angular-toolbar ta-toolbar-class="toolbarFooter" name="toolbarFooter" ta-toolbar="[['insertLink', 'insertImage', 'html', 'quote','insertVideo']]"></text-angular-toolbar>-->
   <div class="footer-controls">
     <i class="footer-control-first compose-footer-icon ion-arrow-down-b"></i>
     <i ng-click="$dismiss()" class="compose-footer-icon ion-android-delete"></i>
