@@ -1,0 +1,44 @@
+<div class="torrent-container" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
+  <div class="torrent">
+    <div class="row">
+      <div class="toggle-navigation-container detail-page">
+        <a href class="collapse-navigation-link ion-navicon"
+           ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
+      </div>
+      <button ui-sref="torrents.label({label : detailCtrl.label})"  type="button" class="back-button btn btn-default btn-with-icon">
+        <i class="ion-chevron-left"></i>Back
+      </button>
+    </div>
+    <div class="torrent-info row">
+      <div class="col-lg-4 col-md-12  no-padding">
+        <div class="name">
+          <h2 class="name-h">{{detailCtrl.torrent.name}}</h2>
+          <div>
+            <span class="tag torrents-status">{{detailCtrl.torrent.status | statusText}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-12 no-padding">
+        <div class="torrent-progress">
+            <span>todo: more info - progress bar</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    </div>
+    <div class="line"></div>
+    <div class="torrent-details">
+      <span>todo: details</span>
+      <span class="subject">xxx </span>
+      <span class="date">{{detailCtrl.torrent.date | date : 'h:mm a MMMM d '}}</span>
+    </div>
+    <div class="line"></div>
+    <div class="torrent-body">
+      <span>todo: body</span>
+    </div>
+    <div class="line"></div>
+  </div>
+  <div ng-show="!detailCtrl.torrent">
+    <h5 ng-class="text-center">Nothing to show</h5>
+  </div>
+</div>

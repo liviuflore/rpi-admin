@@ -42,6 +42,10 @@
     <Compile Include="gulp\watch.js" />
     <Content Include="src\404.html" />
     <Content Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.html" />
+    <Content Include="src\app\pages\torrents\addBox\add.html" />
+    <Content Include="src\app\pages\torrents\detail\torrentsDetail.html" />
+    <Content Include="src\app\pages\torrents\list\torrentsList.html" />
+    <Content Include="src\app\pages\torrents\torrents.html" />
     <Content Include="src\auth.html" />
     <Content Include="src\index.html" />
     <Content Include="src\reg.html" />
@@ -66,9 +70,10 @@
     <Content Include="docs\contents\articles\014-switch-to-blur-theme\index.md" />
     <Content Include="docs\contents\articles\051-sidebar\index.md" />
     <Content Include="docs\contents\articles\091-downloads\index.md" />
-    <Compile Include="middleware\api.js" />
+    <Compile Include="middleware\config.js" />
     <Compile Include="middleware\osutils.js" />
     <Compile Include="middleware\system.js" />
+    <Compile Include="middleware\transmission.js" />
     <Compile Include="src\app\app.js" />
     <Content Include="src\sass\404.scss" />
     <Content Include="src\sass\app\maps\_google-maps.scss" />
@@ -90,6 +95,7 @@
     <Content Include="src\sass\app\_slider.scss" />
     <Content Include="src\sass\app\_table.scss" />
     <Content Include="src\sass\app\_tabsPage.scss" />
+    <Content Include="src\sass\app\_torrents.scss" />
     <Content Include="src\sass\app\_tplSkinPanel.scss" />
     <Content Include="src\sass\app\_tree.scss" />
     <Content Include="src\sass\app\_typography.scss" />
@@ -101,6 +107,14 @@
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPieCtrl.js" />
     <Compile Include="src\app\pages\pages.module.js" />
+    <Compile Include="src\app\pages\torrents\addBox\addBoxCtrl.js" />
+    <Compile Include="src\app\pages\torrents\addBox\addModal.js" />
+    <Compile Include="src\app\pages\torrents\detail\TorrentsDetailCtrl.js" />
+    <Compile Include="src\app\pages\torrents\list\TorrentsListCtrl.js" />
+    <Compile Include="src\app\pages\torrents\torrents.module.js" />
+    <Compile Include="src\app\pages\torrents\torrentsList.js" />
+    <Compile Include="src\app\pages\torrents\TorrentsTabCtrl.js" />
+    <Compile Include="src\app\theme\filters\text\math.js" />
     <Compile Include="src\app\theme\theme.config.js" />
     <Compile Include="src\app\theme\theme.configProvider.js" />
     <Compile Include="src\app\theme\theme.constants.js" />
@@ -548,6 +562,10 @@
     <Folder Include="src\app\pages\tables\basic" />
     <Folder Include="src\app\pages\tables\smart" />
     <Folder Include="src\app\pages\tables\widgets" />
+    <Folder Include="src\app\pages\torrents\" />
+    <Folder Include="src\app\pages\torrents\addBox\" />
+    <Folder Include="src\app\pages\torrents\detail\" />
+    <Folder Include="src\app\pages\torrents\list\" />
     <Folder Include="src\app\pages\ui" />
     <Folder Include="src\app\pages\ui\alerts" />
     <Folder Include="src\app\pages\ui\buttons" />

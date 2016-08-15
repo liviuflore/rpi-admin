@@ -10,11 +10,7 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-// api middleware
-var express = require('express');
-var apimiddleware = express();
-var apirouter = require('../middleware/api.js');
-apimiddleware.use('/', apirouter);
+var proxyMiddleware = require('http-proxy-middleware');
 
 
 function browserSyncInit(baseDir, browser) {
@@ -31,24 +27,11 @@ function browserSyncInit(baseDir, browser) {
         baseDir: baseDir,
         routes: routes,
     };
-
-    var middleware = [
-        {
-            route: "/api",
-            handle: function (req, res, next) {
-                apimiddleware(req, res);                // handle any requests at /api
-            }
-        },
-        function (req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            next();
-        }
-    ]
+    server.middleware = proxyMiddleware('/api', { target: 'http://localhost:5000', changeOrigin: true });
 
     browserSync.instance = browserSync.init({
         startPath: '/',
         server: server,
-        middleware: middleware,
         browser: browser,
         ghostMode: false
     });

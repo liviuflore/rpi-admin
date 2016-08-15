@@ -1,0 +1,73 @@
+<div class="side-torrent-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
+  <div class="torrents-list-control side-torrent-navigation-item">
+    <table style="width: 100%">
+      <tr>
+        <td width="34px">
+          <div class="toggle-navigation-container">
+            <a href class="collapse-navigation-link ion-navicon"
+               ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
+          </div>
+        </td>
+        <td width="80px">
+          <label class="checkbox-inline custom-checkbox nowrap">
+            <input type="checkbox" ng-model="selectAll" ng-click="ToggleSelectAll()">
+            <span class="select-all-label">Select All</span>
+          </label>
+        </td>
+        <td width="24px">
+          <button type="button" class="btn btn-icon action-button" ng-click="LoadTorrents()"><i class="ion-refresh"></i></button>
+        </td>
+        <td align="right">
+          <button type="button" class="btn btn-icon action-button" ng-click="DeleteTorrents()"><i class="ion-ios-trash"></i></button>
+          <button type="button" class="btn btn-icon action-button" ng-click="StopTorrents()"><i class="ion-pause"></i></button>
+          <button type="button" class="btn btn-icon action-last-button" ng-click="StartTorrents()"><i class="ion-play"></i></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="torrents">
+    <table class="table table-hover torrents-table">
+      <tr ng-repeat="m in listCtrl.torrents track by m.id | orderBy:'-date'"
+          class="side-torrent-navigation-item">
+        <td class="torrent-status torrent-status-{{m.status | statusText}}" >
+        </td>
+        <td class="check-td">
+          <div class="torrents-checkbox">
+            <label class="checkbox-inline custom-checkbox nowrap">
+              <input type="checkbox" ng-model="selectedTorrents[$index].selected">
+              <span></span>
+            </label>
+          </div>
+        </td>
+        <td ui-sref="torrents.detail({id: m.id})">
+          <table class="torrents-table-details">
+            <tbody>
+              <tr>
+                <td colspan="3">
+                  <div class="torrent-name-container"><span class="name">{{m.name}}</span></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="torrent-rate-td" rowspan="2">
+                  <div class="torrent-ratio torrent-ratio-{{m.status | statusText}}"><span>{{m.uploadRatio | mathRound: 2}}</span></div>
+                </td>
+                <td>
+                  <div class="torrent-icon"><i class="ion-{{m.status | statusIcon}}"></i></div>
+                  <span class="tag torrents-status-x">{{m | statusOrEta | autoTimeShort}}</span>
+                </td>
+                <td><b>D: </b><span>{{m.downloadedEver | autoSizeBytes}}</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="torrent-icon"><i class="ion-{{m.status | rateIcon}}"></i></div>
+                  <span>{{m | rateSpeed | autoSpeedB}}</span>
+                </td>
+                <td><b>U: </b><span>{{m.uploadedEver | autoSizeBytes}}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

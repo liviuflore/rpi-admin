@@ -1,0 +1,27 @@
+<div class="row torrents-client-container transparent">
+  <div class="col-md-12">
+    <div ba-panel ba-panel-class="panel torrents-panel">
+      <div class="letter-layout">
+        <div class="torrents-navigation-container" ng-class="{'expanded' : !tabCtrl.navigationCollapsed}">
+          <div class="text-center">
+            <button type="button" class="btn btn-default add-button" ng-click="tabCtrl.showAdd('','','')">
+              Add
+            </button>
+          </div>
+          <div ng-repeat="t in tabCtrl.tabs" ui-sref-active="active" class="torrents-navigation"
+               ui-sref="torrents.label({label: t.label})" ng-click="selectTab(t.label)">
+            {{t.name}}<span class="new-torrents" ng-show="t.newTorrents">{{t.newTorrents}}</span>
+          </div>
+          <div class="torrents-labels">
+            <div class="torrents-labels-title">
+            </div>
+          </div>
+          <div class="torrents-add-label-container">
+            <i class="ion-plus-round"></i><span class="torrents-label-input-stub">stats .... todo</span>
+          </div>
+        </div>
+        <ui-view></ui-view>
+      </div>
+    </div>
+  </div>
+</div>

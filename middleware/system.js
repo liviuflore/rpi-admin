@@ -1,12 +1,13 @@
 'use strict';
 
-var gutil = require('gulp-util');
-var os = require("./osutils");
+var config = require('./config').config;
+var dlog = require('./config').dlog;
 
+var os = require("./osutils");
 var express = require('express');
 var router = express.Router();
 
-os.startStatGather(5000);
+os.startStatGather(config.system.statsUpdateInterval);
 
 router.get('/cpustats', function (req, res) {
     res.json({

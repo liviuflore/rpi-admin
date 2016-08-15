@@ -9,6 +9,7 @@
     'ui.router',
 
     'BlurAdmin.pages.dashboard',
+    'BlurAdmin.pages.torrents',
     'BlurAdmin.pages.ui',
     'BlurAdmin.pages.components',
     'BlurAdmin.pages.form',
@@ -21,7 +22,9 @@
 
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/dashboard');
+      $urlRouterProvider.when('/torrents', '/torrents/all');
+      $urlRouterProvider.otherwise('/dashboard');
+
 /*
     baSidebarServiceProvider.addStaticItem({
       title: 'Pages',
