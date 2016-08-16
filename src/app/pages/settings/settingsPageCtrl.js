@@ -66,7 +66,7 @@
     };
 
     $scope.LoadSettings = function () {
-      runRequest('/api/system/settings').then(function (data) {
+      runRequest('/api/config/system').then(function (data) {
         if (typeof data != 'undefined') {
           $scope.sysSettings = data;
         }
@@ -75,7 +75,7 @@
           toastr.error("Could not get settings!", 'Error');
         }
       });
-      runRequest('/api/transmission/settings').then(function (data) {
+      runRequest('/api/config/transmission').then(function (data) {
         if (typeof data != 'undefined') {
           $scope.torrentsSettings = data;
         }

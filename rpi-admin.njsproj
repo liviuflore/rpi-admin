@@ -72,6 +72,7 @@
     <Content Include="docs\contents\articles\051-sidebar\index.md" />
     <Content Include="docs\contents\articles\091-downloads\index.md" />
     <Compile Include="middleware\config.js" />
+    <Compile Include="middleware\log.js" />
     <Compile Include="middleware\osutils.js" />
     <Compile Include="middleware\system.js" />
     <Compile Include="middleware\transmission.js" />

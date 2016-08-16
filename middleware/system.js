@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('./config').config;
-var dlog = require('./config').dlog;
+var dlog = require('./log');
 
 var os = require("./osutils");
 var express = require('express');
@@ -26,10 +26,6 @@ router.get('/hostname', function (req, res) {
 
 router.get('/uptime', function (req, res) {
     res.json({ hostname: os.sysUptime() });
-});
-
-router.get('/settings', function (req, res) {
-  res.json(config.system);
 });
 
 module.exports = router;
