@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('./config').config;
-var dlog = require('./log');
+var log = require('./log');
 
 var os = require("./osutils");
 var express = require('express');

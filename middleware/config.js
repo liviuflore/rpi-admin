@@ -1,6 +1,6 @@
 'use strict';
 
-var dlog = require('./log');
+var log = require('./log');
 var express = require('express');
 var router = express.Router();
 
@@ -27,4 +27,4 @@ router.get('/transmission', function (req, res) {
 });
 
 
-module.exports = { router, config, dlog };
+module.exports = { router, config, log };

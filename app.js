@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('./middleware/config').config;
-var dlog = require('./middleware/log');
+var log = require('./middleware/log');
 
 var express = require('express');
 var app = express();
@@ -16,7 +16,7 @@ var transmissionRouter = require('./middleware/transmission');
 
 /* HTTP request logging */
 app.use(function timeLog(req, res, next) {
-    dlog.i("GET [" + req.url + "]");
+    log.i("GET [" + req.url + "]");
     next();
 });
 
@@ -33,5 +33,5 @@ app.use('/api/transmission', transmissionRouter);
 
 
 /* start server */
-dlog.i("starting server on port " + config.system.webPort);
+log.i("starting server on port " + config.system.webPort);
 app.listen(config.system.webPort);
