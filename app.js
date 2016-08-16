@@ -29,6 +29,6 @@ app.use('/api/transmission', transmissionRouter);
 //router.use('/api/pimatic', pimaticRouter);
 
 
-dlog("starting server on port " + config.port);
+dlog("starting server on port " + config.system.webPort);
 
-app.listen(config.port);
+app.listen(config.system.webPort);

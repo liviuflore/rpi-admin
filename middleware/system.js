@@ -28,5 +28,8 @@ router.get('/uptime', function (req, res) {
     res.json({ hostname: os.sysUptime() });
 });
 
+router.get('/settings', function (req, res) {
+  res.json(config.system);
+});
 
 module.exports = router;

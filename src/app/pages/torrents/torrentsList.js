@@ -52,7 +52,7 @@
                 return runRequest('/api/transmission/torrents');
             },
             deleteTorrents: function (list, deleteData) {
-                if (typeof deleteData == 'undefined') deleteData = false;
+                deleteData = typeof deleteData !== 'undefined' ? deleteData : false;
                 console.log("delete torrents " + list);
                 return runRequest('/api/transmission/delete_torrents/' + (list.length == 0 ? 'none' : list) + '/' + deleteData);
             },

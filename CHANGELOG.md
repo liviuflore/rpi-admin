@@ -1,11 +1,53 @@
-v1.2.0 - 16 May 2016
---------------------
-- Refactoring to improve customization, fixes #22, #26
-- Add documentation
-- Sidebar refactoring, fixes #14, #15, #27
-- Bootstrap select refactoring #18
+==============================================================================
+v0.0.1 - 16 Aug 2016
+------------------------------------------------------------------------------
+Interface menu:
+	- Dashboard
+	- Torrets
+	- Media
+		- Movies
+		- TvShows
+		- Music
+	- Pimatic
+	- Weather
+	* Settings
+	* Login
+	* Logout
 
-v1.1.1 - 11 Apr 2016
---------------------
-- Improved scrolling performance, fixes #2
-- Set 0.9.5 version for the Chartist library by default, fixes #5
+==============================================================================
+HOWTO:
+------------------------------------------------------------------------------
+	run dev env:
+		gulp serve # to run the frontend
+		node app.js # to run the middleware
+	run release:
+		gulp serve:dist # to build the frontend in release dir
+		node app.js # to run the middleware & serve forntend content 
+			from release dir
+
+==============================================================================
+TODO:
+------------------------------------------------------------------------------
+Dashboard:
+	- make dasboard cards configurable (order size visibility)
+Settings:
+	- fill settings page
+	- middleware: load settings from .json file
+	- middleware: get/save Settings
+Login/Logout:
+	- add forms
+	- add create user (user/admin)
+Torrents:
+	- fix menu link to torrents
+	- finish add torrent modal
+	- middleware: add add torrent command
+	- middleware: fix remove/start/stop torrent commands
+Media:
+	Movies:
+		- add
+	TvShows:
+		- add
+	Music:
+		- add
+Pimatic:
+	- add
