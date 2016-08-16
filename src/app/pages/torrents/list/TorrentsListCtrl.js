@@ -70,11 +70,13 @@
           return torrent.rateDownload;
   };
 
+
+
   angular.module('BlurAdmin.pages.torrents')
     .controller('TorrentsListCtrl', TorrentsListCtrl);
 
   /** @ngInject */
-  function TorrentsListCtrl($scope, $stateParams, torrentsList) {
+  function TorrentsListCtrl($scope, $stateParams, torrentsList, toastr) {
     var vm = this;
     vm.torrents = [];
     vm.label = $stateParams.label;
@@ -83,10 +85,16 @@
     $scope.selectAll = false;
     $scope.LoadTorrents = function () {
         torrentsList.getTorrents().then(function (torrents) {
-            vm.torrents = torrentsList.filterByLabel(torrents, $stateParams.label);
-            angular.forEach(vm.torrents, function (torrent) {
-                $scope.selectedTorrents.push({ id: torrent.id, selected: false });
-            });
+            if (typeof torrents != 'undefined') {
+                vm.torrents = torrentsList.filterByLabel(torrents, $stateParams.label);
+                angular.forEach(vm.torrents, function (torrent) {
+                    $scope.selectedTorrents.push({ id: torrent.id, selected: false });
+                });
+            }
+            else {
+                console.log("Could not get torrents. Check connection settings!");
+                toastr.error("Could not get torrents. Check connection settings!", 'Error');
+            }
         });
     };
     $scope.LoadTorrents();

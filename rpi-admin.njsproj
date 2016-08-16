@@ -42,6 +42,7 @@
     <Compile Include="gulp\watch.js" />
     <Content Include="src\404.html" />
     <Content Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.html" />
+    <Content Include="src\app\pages\settings\settings.html" />
     <Content Include="src\app\pages\torrents\addBox\add.html" />
     <Content Include="src\app\pages\torrents\detail\torrentsDetail.html" />
     <Content Include="src\app\pages\torrents\list\torrentsList.html" />
@@ -92,6 +93,7 @@
     <Content Include="src\sass\app\_modals.scss" />
     <Content Include="src\sass\app\_notifications.scss" />
     <Content Include="src\sass\app\_profile.scss" />
+    <Content Include="src\sass\app\_settings.scss" />
     <Content Include="src\sass\app\_slider.scss" />
     <Content Include="src\sass\app\_table.scss" />
     <Content Include="src\sass\app\_tabsPage.scss" />
@@ -107,6 +109,8 @@
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPieCtrl.js" />
     <Compile Include="src\app\pages\pages.module.js" />
+    <Compile Include="src\app\pages\settings\settings.module.js" />
+    <Compile Include="src\app\pages\settings\settingsPageCtrl.js" />
     <Compile Include="src\app\pages\torrents\addBox\addBoxCtrl.js" />
     <Compile Include="src\app\pages\torrents\addBox\addModal.js" />
     <Compile Include="src\app\pages\torrents\detail\TorrentsDetailCtrl.js" />
@@ -558,6 +562,7 @@
     <Folder Include="src\app\pages\maps\map-bubbles" />
     <Folder Include="src\app\pages\maps\map-lines" />
     <Folder Include="src\app\pages\profile" />
+    <Folder Include="src\app\pages\settings\" />
     <Folder Include="src\app\pages\tables" />
     <Folder Include="src\app\pages\tables\basic" />
     <Folder Include="src\app\pages\tables\smart" />
