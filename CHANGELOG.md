@@ -28,13 +28,26 @@ HOWTO:
 ==============================================================================
 TODO:
 ------------------------------------------------------------------------------
+Dashboard:
+	- make dasboard cards configurable (order size visibility)
+Settings:
+	- fill settings page
+	- middleware: load settings from .json file
+	- middleware: get/save Settings
+Login/Logout:
+	- add forms
+	- add create user (user/admin)
 Torrents:
 	- fix menu link to torrents
 	- finish add torrent modal
 	- middleware: add add torrent command
 	- middleware: fix remove/start/stop torrent commands
-Settings:
-	- fill settings page
-	- middleware: load settings from .json file
-	- middleware: get/save Settings
-
+Media:
+	Movies:
+		- add
+	TvShows:
+		- add
+	Music:
+		- add
+Pimatic:
+	- add

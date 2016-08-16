@@ -227,3 +227,38 @@ a.sn-link {
   }
 }
 
+.settings-inline-enable {
+    text-align:right;
+    float: right;
+}
+.settings-inline-input {
+    float: left;
+}
+
+@media (max-width: 767px) {
+  .settings-single-label {
+      width: 100%;
+  }
+  .settings-inline-label {
+      width: 66.67%;
+  }
+  .settings-inline-input {
+      width: 66.67%;
+  }
+  .settings-inline-enable {
+      width: 33.33%;
+  }
+}
+
+@media (max-width: 399px) {
+  .settings-inline-label {
+      width: 55%;
+  }
+  .settings-inline-input {
+      width: 55%;
+  }
+  .settings-inline-enable {
+      width: 45%;
+  }
+}
+
