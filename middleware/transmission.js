@@ -61,4 +61,8 @@ router.all('/start_torrents/:torrents', function (req, res) {
     res.json({});
 });
 
+router.get('/settings', function (req, res) {
+  res.json(config.transmission);
+});
+
 module.exports = router;

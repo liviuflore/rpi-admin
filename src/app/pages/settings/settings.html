@@ -8,30 +8,15 @@
         <div class="form-group row clearfix">
           <label for="inputWebPort" class="col-sm-4 control-label">Web server port</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputWebPort" placeholder="" value="">
+            <input type="text" class="form-control" id="inputWebPort" placeholder="" ng-model="sysSettings.webPort">
           </div>
         </div>
         <div class="form-group row clearfix">
           <label for="inputStatsInterval" class="col-sm-4 control-label">Statistics Update Interval</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputStatsInterval" placeholder="" value="">
+            <input type="text" class="form-control" id="inputStatsInterval" placeholder="" ng-model="sysSettings.statsUpdateInterval">
           </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <!--
-        <div class="form-group row clearfix">
-          <label class="col-sm-3 control-label">Department</label>
-          <div class="col-sm-9">
-            <select class="form-control" selectpicker>
-              <option>Web Development</option>
-              <option>System Development</option>
-              <option>Sales</option>
-              <option>Human Resources</option>
-            </select>
-          </div>
-        </div>
-        -->
       </div>
     </div>
 
@@ -54,13 +39,13 @@
         <div class="form-group row clearfix">
           <label for="inputTorrentsHost" class="col-sm-4 control-label">Host</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputTorrentsHost" placeholder="" value="127.0.0.1">
+            <input type="text" class="form-control" id="inputTorrentsHost" placeholder="" ng-model="torrentsSettings.host">
           </div>
         </div>
         <div class="form-group row clearfix">
           <label for="inputTorrentsPort" class="col-sm-4 control-label">Port</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputTorrentsPort" placeholder="" value="9091">
+            <input type="text" class="form-control" id="inputTorrentsPort" placeholder="" ng-model="torrentsSettings.port">
           </div>
         </div>
       </div>
@@ -68,13 +53,13 @@
         <div class="form-group row clearfix">
           <label for="inputTorrentsUsername" class="col-sm-4 control-label">User name</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputTorrentsUsername" placeholder="" value="transmission">
+            <input type="text" class="form-control" id="inputTorrentsUsername" placeholder="" ng-model="torrentsSettings.username">
           </div>
         </div>
         <div class="form-group row clearfix">
           <label for="inputTorrentsPassword" class="col-sm-4 control-label">Password</label>
           <div class="col-sm-8">
-            <input type="password" class="form-control" id="inputTorrentsPassword" placeholder="" value="transmission">
+            <input type="password" class="form-control" id="inputTorrentsPassword" placeholder="" ng-model="torrentsSettings.password">
           </div>
         </div>
       </div>
@@ -82,7 +67,7 @@
         <div class="form-group row clearfix">
           <label for="inputTorrentsUrl" class="col-sm-4 control-label">URL</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputTorrentsUrl" placeholder="" value="/transmission/rpc">
+            <input type="text" class="form-control" id="inputTorrentsUrl" placeholder="" ng-model="torrentsSettings.url">
           </div>
         </div>
       </div>
@@ -92,13 +77,13 @@
         <div class="form-group row clearfix">
           <label for="inputTorrentsDownloadDir" class="col-sm-4 control-label">Download to</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputTorrentsDownloadDir" placeholder="" value="~/downloads/complete">
+            <input type="text" class="form-control" id="inputTorrentsDownloadDir" placeholder="" ng-model="torrentsSettings.downloadDir">
           </div>
         </div>
         <div class="form-group row clearfix">
-          <label for="inputTorrentsDownLimit" class="col-sm-6 control-label settings-inline-label">Start when added</label>
+          <label for="inputStartWhenAdded" class="col-sm-6 control-label settings-inline-label">Start when added</label>
           <div class="col-sm-6 settings-inline-enable" style="text-align:right;">
-            <switch color="primary" ng-model="switches[0]"></switch>
+            <switch color="primary" ng-model="torrentsSettings.startWhenAdded"></switch>
           </div>
         </div>
       </div>
@@ -106,19 +91,19 @@
         <div class="form-group row clearfix">
           <label for="inputTorrentsUpLimit" class="col-sm-5 control-label settings-single-label">Upload speed limit (kB/s)</label>
           <div class="col-sm-4 settings-inline-input">
-            <input type="text" class="form-control" id="inputTorrentsUpLimit" placeholder="" value="100">
+            <input type="text" class="form-control" id="inputTorrentsUpLimit" placeholder="" ng-model="torrentsSettings.upLimit">
           </div>
           <div class="col-sm-3 settings-inline-enable">
-            <switch color="primary" ng-model="switches[0]"></switch>
+            <switch color="primary" ng-model="torrentsSettings.upLimitEn"></switch>
           </div>
         </div>
         <div class="form-group row clearfix">
           <label for="inputTorrentsDownLimit" class="col-sm-5 control-label settings-single-label">Download speed limit (kB/s)</label>
           <div class="col-sm-4 settings-inline-input">
-            <input type="text" class="form-control" id="inputTorrentsDownLimit" placeholder="" value="100">
+            <input type="text" class="form-control" id="inputTorrentsDownLimit" placeholder="" ng-model="torrentsSettings.downLimit">
           </div>
           <div class="col-sm-3 settings-inline-enable" style="text-align:right;">
-            <switch color="primary" ng-model="switches[0]"></switch>
+            <switch color="primary" ng-model="torrentsSettings.downLimitEn"></switch>
           </div>
 
         </div>
