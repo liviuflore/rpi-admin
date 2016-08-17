@@ -34,7 +34,6 @@ Login/Logout:
 	- add forms
 	- add create user (user/admin)
 Torrents:
-	- fix menu link to torrents
 	- finish add torrent modal
 	- middleware: add add torrent command
 	- middleware: fix remove/start/stop torrent commands
