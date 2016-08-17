@@ -11,18 +11,26 @@ var config = {
     statsUpdateInterval: 5000,
   },
   transmission: {
-    host: '192.168.1.21',
+    host: '127.0.0.1',
     port: 9091,
-    username: 'osmc',
-    password: 'liviu22',
+    username: 'transmission',
+    password: 'transmission',
     url: '/transmission/rpc',
   }
 }
+
+var config_filename = 'config.json';
 try {
-  config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+  config = JSON.parse(fs.readFileSync(config_filename, 'utf8'));
 }
 catch (e) {
   log.e('config file not found, loading defaults');
+  fs.writeFile(config_filename, JSON.stringify(config, null, 4), function (err) {
+    if (err) {
+      log.e('could not write file ' + config_filename + ' [' + err + ']');
+      return;
+    }
+  });
 }
 //log.d(config);
 
