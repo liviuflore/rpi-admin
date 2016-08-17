@@ -9,7 +9,7 @@
     .controller('SettingsPageCtrl', SettingsPageCtrl);
 
   /** @ngInject */
-  function SettingsPageCtrl($scope, fileReader, $filter, $uibModal, $q, $http) {
+  function SettingsPageCtrl($scope, fileReader, $filter, $uibModal, $q, $http, toastr) {
     /* TBR */
     $scope.picture = $filter('profilePicture')('face');
     /* TBR */
@@ -36,25 +36,10 @@
     };
 
     /*default settings */
-    $scope.sysSettings = {
-      webPort: 80,
-      statsUpdateInterval: 3000,
+    $scope.config = {
     };
-    $scope.torrentsSettings = {
-      host : '127.0.0.1',
-      port: '9091',
-      username: 'transmission',
-      password: 'transmission',
-      url: '/transmission/rpc',
-      downloadDir: '~/downloads/complete',
-      startWhenAdded: true,
-      upLimit: 1000,
-      upLimitEn: false,
-      downLimit: 1000,
-      downLimitEn: false,
-    }
 
-    function runRequest(req) {
+    function runGetRequest(req) {
       var deferredQ = $q.defer();
       $http.get(req).then(function (response) {
         deferredQ.resolve(response.data);
@@ -64,28 +49,40 @@
       });
       return deferredQ.promise;
     };
-
-    $scope.LoadSettings = function () {
-      runRequest('/api/config/system').then(function (data) {
-        if (typeof data != 'undefined') {
-          $scope.sysSettings = data;
-        }
-        else {
-          console.log("Could not get settings!");
-          toastr.error("Could not get settings!", 'Error');
-        }
+    function runPostRequest(req, data) {
+      var deferredQ = $q.defer();
+      $http.post(req, data).then(function (response) {
+        deferredQ.resolve(response.data);
+      }, function (error) {
+        console.error(error);
+        deferredQ.reject(Error("Failed to get '" + req + "'! [" + error + "]"));
       });
-      runRequest('/api/config/transmission').then(function (data) {
-        if (typeof data != 'undefined') {
-          $scope.torrentsSettings = data;
-        }
-        else {
+      return deferredQ.promise;
+    };
+
+    $scope.LoadConfig = function () {
+      runGetRequest('/api/config/get').then(function (data) {
+        if (typeof data == 'undefined') {
           console.log("Could not get settings!");
           toastr.error("Could not get settings!", 'Error');
+        } else {
+          $scope.config = data;
         }
       });
     };
-    $scope.LoadSettings();
+    $scope.LoadConfig();
+
+    $scope.SaveConfig = function () {
+      runPostRequest('/api/config/save', $scope.config).then(function (data) {
+        if (typeof data == 'undefined' || data.response == 'ERROR') {
+          console.log("Could not save settings!");
+          toastr.error("Could not save settings!", 'Error');
+        } else {
+          $scope.LoadConfig();
+          toastr.info("settings saved!", 'Info');
+        }
+      });
+    };
 
 
     /* TBR */
