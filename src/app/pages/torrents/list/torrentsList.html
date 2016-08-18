@@ -48,21 +48,21 @@
                 </td>
               </tr>
               <tr>
-                <td class="torrent-rate-td" rowspan="2">
+                <td class="torrent-ratio-td" rowspan="2">
                   <div class="torrent-ratio torrent-ratio-{{m.status | statusText}}"><span>{{m.uploadRatio | mathRound: 2}}</span></div>
                 </td>
-                <td>
+                <td class="torrent-details-td">
                   <div class="torrent-icon"><i class="ion-{{m.status | statusIcon}}"></i></div>
                   <span class="tag torrents-status-x">{{m | statusOrEta | autoTimeShort}}</span>
                 </td>
-                <td><b>D: </b><span>{{m.downloadedEver | autoSizeBytes}}</span></td>
+                <td class="torrent-details-td"><b>D: </b><span>{{m.downloadedEver | autoSizeBytes}}</span></td>
               </tr>
               <tr>
-                <td>
+                <td class="torrent-details-td">
                   <div class="torrent-icon"><i class="ion-{{m.status | rateIcon}}"></i></div>
                   <span>{{m | rateSpeed | autoSpeedB}}</span>
                 </td>
-                <td><b>U: </b><span>{{m.uploadedEver | autoSizeBytes}}</span></td>
+                <td class="torrent-details-td"><b>U: </b><span>{{m.uploadedEver | autoSizeBytes}}</span></td>
               </tr>
             </tbody>
           </table>
