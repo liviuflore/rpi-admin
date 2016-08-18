@@ -36,7 +36,6 @@ Login/Logout:
 Torrents:
 	- finish add torrent modal
 	- middleware: add add torrent command
-	- middleware: fix remove/start/stop torrent commands
 	- middleware: set extended transmission settings
 	- middleware: support different torrent clients
 Media:
