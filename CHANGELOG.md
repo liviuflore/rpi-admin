@@ -36,7 +36,9 @@ Login/Logout:
 Torrents:
 	- finish add torrent modal
 	- middleware: add add torrent command
+	- middleware: cache latest download to dirs
 	- middleware: set extended transmission settings
+	- finish torrent details page
 	- middleware: support different torrent clients
 Media:
 	Movies:
