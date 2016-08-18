@@ -16,8 +16,8 @@ var torrentsRouter = require('./middleware/transmission');
 
 /* HTTP request logging */
 app.use(function timeLog(req, res, next) {
-    log.i("GET [" + req.url + "]");
-    next();
+  log.i(req.method +" [" + req.url + "]");
+  next();
 });
 
 /* serve static content */

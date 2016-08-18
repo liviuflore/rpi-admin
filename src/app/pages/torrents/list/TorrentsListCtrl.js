@@ -76,7 +76,7 @@
     .controller('TorrentsListCtrl', TorrentsListCtrl);
 
   /** @ngInject */
-  function TorrentsListCtrl($scope, $stateParams, torrentsList, toastr) {
+  function TorrentsListCtrl($scope, $stateParams, $timeout, torrentsList, toastr) {
     var vm = this;
     vm.torrents = [];
     vm.label = $stateParams.label;
@@ -88,7 +88,9 @@
             if (typeof torrents != 'undefined') {
                 vm.torrents = torrentsList.filterByLabel(torrents, $stateParams.label);
                 angular.forEach(vm.torrents, function (torrent) {
+                  if ($scope.selectedTorrents.filter(function (t) { return (t.id == torrent.id); }).length <= 0) {
                     $scope.selectedTorrents.push({ id: torrent.id, selected: false });
+                  }
                 });
             }
             else {
@@ -116,20 +118,22 @@
     }
     $scope.DeleteTorrents = function () {
         var selectedIds = $scope.GetSelectedIds();
-        torrentsList.deleteTorrents(selectedIds, false).then(function(result) {
-            $scope.LoadTorrents();
+        torrentsList.deleteTorrents(selectedIds, false).then(function (result) {
+          $scope.selectedTorrents = [];
+          $scope.selectAll = false;
+          $timeout(function () { $scope.LoadTorrents() }, 200);
         });
     };
     $scope.StopTorrents = function () {
         var selectedIds = $scope.GetSelectedIds();
         torrentsList.stopTorrents(selectedIds).then(function (result) {
-            $scope.LoadTorrents();
+          $timeout(function () { $scope.LoadTorrents() }, 500);
         });
     };
     $scope.StartTorrents = function () {
         var selectedIds = $scope.GetSelectedIds();
         torrentsList.startTorrents(selectedIds).then(function (result) {
-            $scope.LoadTorrents();
+          $timeout(function () { $scope.LoadTorrents() }, 200);
         });
     };
 

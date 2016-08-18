@@ -41,8 +41,11 @@ router.get('/list', function (req, res) {
 });
 
 router.all('/delete/:torrents/:deleteData', function (req, res) {
-    var torrents = req.params.torrents.split(",");
+    var torrents = req.params.torrents.split(",").map(function (item) {
+      return parseInt(item, 10);
+    });
     log.d("delete torrents: " + torrents + " delete data: " + req.params.deleteData + " is ignored");
+
     transmission.remove(torrents, function (err) {
       if (err) {
         log.e(err);
@@ -54,8 +57,11 @@ router.all('/delete/:torrents/:deleteData', function (req, res) {
 });
 
 router.all('/stop/:torrents', function (req, res) {
-    var torrents = req.params.torrents.split(",");
+    var torrents = req.params.torrents.split(",").map(function (item) {
+      return parseInt(item, 10);
+    });
     log.d("stop torrents: " + torrents);
+
     transmission.stop(torrents, function (err) {
       if (err) {
         log.e(err);
@@ -67,8 +73,11 @@ router.all('/stop/:torrents', function (req, res) {
 });
 
 router.all('/start/:torrents', function (req, res) {
-    var torrents = req.params.torrents.split(",");
+    var torrents = req.params.torrents.split(",").map(function (item) {
+      return parseInt(item, 10);
+    });
     log.d("start torrents: " + torrents);
+
     transmission.start(torrents, function (err) {
       if (err) {
         log.e(err);
