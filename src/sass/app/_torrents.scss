@@ -120,6 +120,11 @@
   margin: 5px;
 }
 
+.torrent-details-status {
+  padding: 0px 10px 0px 0px;
+  text-align: right;
+}
+
 .torrent-status {
   width:5px; 
 }
@@ -324,16 +329,6 @@
   width: 200px; 
 }
 
-
-@media screen and (min-width: 1199px) {
-  .torrent-ratio {
-    width: 55px;
-  }
-  .check-td {
-    width: 35px;
-  }
-}
-
 .important {
   color: $warning;
 }
@@ -348,7 +343,7 @@
 }
 
 .torrent-info {
-  padding: 0 0 10px 45px;
+  padding: 0 15px 10px 45px;
   margin-top: 10px;
 
   .name {
@@ -359,16 +354,14 @@
     h2 {
       font-weight: 300;
       margin-bottom: 0;
-      font-size: 24px;
-    }
-    .second-name {
-      margin: 5px 0;
+      font-size: 20px;
+      line-height: 30px;
     }
   }
 }
 
 .torrent-progress {
-  padding: 10px 0 5px 10px;
+  padding: 10px 0px 0px 10px;
 }
 
 .no-padding {
@@ -391,10 +384,24 @@
       cursor: pointer;
     }
   }
+  .date-description {
+    white-space: nowrap;
+    font-size: 12px;
+    width: 200px;
+  }
   .date {
     white-space: nowrap;
     font-size: 12px;
   }
+}
+
+.torrent-details-value-td {
+  font-weight:300;
+}
+
+.torrent-details-name-td {
+  width:150px;
+  height:25px;
 }
 
 .torrent-body {
@@ -505,21 +512,24 @@
     .name {
       margin-top: 20px;
     }
-    .mail-tag {
+    .torrent-tag {
       margin-top: 10px;
     }
   }
-  .second-name {
-    margin-top: 0;
+}
+
+@media screen and (min-width: 1199px) {
+  .torrent-ratio {
+    width: 55px;
+  }
+  .check-td {
+    width: 35px;
   }
 }
 
 @media screen and (max-width: 990px) {
 
-  .torrent-info .torrent-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
+  .torrent-info {
     margin: 5px auto;
     display: block;
   }
@@ -547,7 +557,14 @@
   .margin-left {
     margin-left: 5px;
   }
+}
 
+@media screen and (min-width: 990px) {
+  .torrent-info {
+    .name {
+      margin-right: 100px;
+    }
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -583,6 +600,15 @@
     width: 50px;
   }
 }
+
+@media screen and (min-width: 760px) {
+  .torrent-info {
+    .name {
+      margin-right: 50px;
+    }
+  }
+}
+
 
 @media screen and (max-width: 560px) {
   .torrents-navigation-container {

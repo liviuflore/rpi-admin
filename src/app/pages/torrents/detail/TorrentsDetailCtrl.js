@@ -26,7 +26,6 @@
     };
     vm.label = $stateParams.label;
     $scope.LoadTorrent();
-
   }
 
 })();

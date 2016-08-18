@@ -47,7 +47,7 @@
     function autoTime(time) {
         if (time === parseInt(time, 10)) {
             if (time < 0)
-                return 'unknown';
+                return time;
             else {
                 var days = Math.round(time / 86400);
                 var hours = Math.round(time / 3600);
