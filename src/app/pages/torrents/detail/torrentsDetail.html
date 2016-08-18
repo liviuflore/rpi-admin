@@ -98,19 +98,19 @@
       <table width="100%">
         <tr>
           <td class="torrent-details-name-td"><span>Added</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.addedDate | date : 'h:mm a MMMM d '}}</span></td>
+          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.addedDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
         </tr>
         <tr>
           <td class="torrent-details-name-td"><span>Started</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.startDate | date : 'h:mm a MMMM d '}}</span></td>
+          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.startDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
         </tr>
         <tr>
           <td class="torrent-details-name-td"><span>Latest activity</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.activityDate | date : 'h:mm a MMMM d '}}</span></td>
+          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.activityDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
         </tr>
         <tr>
           <td class="torrent-details-name-td"><span>Done</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.doneDate | date : 'h:mm a MMMM d '}}</span></td>
+          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.doneDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
         </tr>
       </table>
     </div>
