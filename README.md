@@ -4,6 +4,11 @@
 
 [Akveo team] https://akveo.github.io/blur-admin/
 
+## Features
+* CPU statistics (partial)
+* Transmission Torrent UI
+* OSMC UI (TODO)
+* pimatic UI (TODO)
 
 License
 -------------
