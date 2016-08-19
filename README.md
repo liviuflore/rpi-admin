@@ -8,9 +8,10 @@
 * OSMC UI (TODO)
 * pimatic UI (TODO)
 
-ref: [Akveo team] https://akveo.github.io/blur-admin/
+## References
+* [Akveo team] https://akveo.github.io/blur-admin/
 
-License
+## License
 -------------
 <a href=/LICENSE.txt target="_blank">MIT</a> license.
 
