@@ -1,13 +1,24 @@
 <div class="torrent-container" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
   <div class="torrent">
     <div class="row">
-      <div class="toggle-navigation-container detail-page">
-        <a href class="collapse-navigation-link ion-navicon"
-           ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
-      </div>
-      <button ui-sref="torrents.label({label : detailCtrl.label})"  type="button" class="back-button btn btn-default btn-with-icon">
-        <i class="ion-chevron-left"></i>Back
-      </button>
+      <table width="100%">
+        <tr>
+          <td style="width:24px">
+            <div class="toggle-navigation-container detail-page">
+              <a href class="collapse-navigation-link ion-navicon"
+                 ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
+            </div>
+          </td>
+          <td>
+            <button ui-sref="torrents.label({label : detailCtrl.label})" type="button" class="back-button btn btn-default btn-with-icon">
+              <i class="ion-chevron-left"></i>Back
+            </button>
+          </td>
+          <td style="padding-right:20px; text-align:right;">
+            <button type="button" class="btn btn-icon action-button" ng-click="LoadTorrent()"><i class="ion-refresh"></i></button>
+          </td>
+        </tr>
+      </table>
     </div>
     <div class="torrent-info row">
       <div class="name">
