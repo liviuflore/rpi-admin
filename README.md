@@ -11,20 +11,20 @@
 ## HOWTO:
 * run dev env:
 	* to run the frontend
-		```shell
+		```
 		gulp serve
 		```
 	* to run the middleware
-		```shell
+		```
 		node app.js
 		```
 * run release:
 	* to build the frontend in release dir
-		```shell
+		```
 		gulp serve:dist
 		```
 	* to run the middleware & serve forntend content from release dir
-		```shell
+		```
 		node app.js
 		```
 
