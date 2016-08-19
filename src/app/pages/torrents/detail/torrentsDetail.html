@@ -10,21 +10,20 @@
       </button>
     </div>
     <div class="torrent-info row">
-      <div class="col-lg-12 no-padding">
-        <div class="name">
-          <h2 class="name-h">{{detailCtrl.torrent.name}}</h2>
-        </div>
+      <div class="name">
+        <h2 class="name-h">{{detailCtrl.torrent.name}}</h2>
       </div>
     </div>
     <div class="torrent-info row">
-      <div class="col-lg-12 no-padding">
-        <div class="torrent-details-status">
-          <span class="tag torrents-status">{{detailCtrl.torrent.status | statusText}}</span>
-        </div>
-        <div class="torrent-progress">
-          <div class="progress">
-            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-            </div>
+      <div class="torrent-details-status">
+        <span class="tag torrents-status">{{detailCtrl.torrent.status | statusText}}</span>
+      </div>
+      <div class="torrent-progress">
+        <div class="progress">
+          <div class="progress-bar torrent-progress-bar-{{detailCtrl.torrent.status | statusText}}" role="progressbar" 
+               aria-valuenow="{{detailCtrl.torrent.percentDone * 100 | mathRound : 2}}" 
+               aria-valuemin="0" aria-valuemax="100" 
+               style="width: {{detailCtrl.torrent.percentDone * 100 | mathRound : 2}}%">
           </div>
         </div>
       </div>
@@ -41,7 +40,7 @@
             <span>{{detailCtrl.torrent.rateUpload | autoSpeedB}}</span>
           </td>
           <td style="text-align:right">
-            <span>{{detailCtrl.torrent.percentDone * 100}} %</span>
+            <span>{{detailCtrl.torrent.percentDone * 100 | mathRound : 2}} %</span>
           </td>
         </tr>
         <tr>

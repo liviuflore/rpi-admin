@@ -362,6 +362,24 @@
 
 .torrent-progress {
   padding: 10px 0px 0px 10px;
+  .progress {
+      height: 10px;
+  }
+}
+.torrent-progress-bar-stopped {
+  background-color: rgba(110, 110, 110, 0.85);
+}
+.torrent-progress-bar-check, .torrent-progress-bar-check_wait {
+  background-color: rgba(184, 245, 0, 0.85);
+}
+.torrent-progress-bar-download, .torrent-progress-bar-download_wait {
+  background-color: rgba(45, 172, 209, 0.85);
+}
+.torrent-progress-bar-seed, .torrent-progress-bar-seed_wait {
+  background-color: rgba(144, 185, 0, 0.85);
+}
+.torrent-progress-bar-isolated {
+  background-color: rgba(232, 86, 86, 0.85);
 }
 
 .no-padding {
