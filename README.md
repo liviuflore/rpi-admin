@@ -2,13 +2,13 @@
 
 # OSMC / Raspberry pi admin panel based on BlurAdmin Angular admin panel front-end framework
 
-[Akveo team] https://akveo.github.io/blur-admin/
-
 ## Features
 * CPU statistics (partial)
 * Transmission Torrent UI
 * OSMC UI (TODO)
 * pimatic UI (TODO)
+
+ref: [Akveo team] https://akveo.github.io/blur-admin/
 
 License
 -------------
