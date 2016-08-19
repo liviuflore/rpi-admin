@@ -34,12 +34,12 @@ Login/Logout:
 	- add forms
 	- add create user (user/admin)
 Torrents:
-	- finish add torrent modal
-	- middleware: add add torrent command
-	- middleware: cache latest download to dirs
-	- middleware: set extended transmission settings
-	- finish torrent details page
-	- middleware: support different torrent clients
+	- details: page - add torrent files
+	- add: modal - finish UI
+	- add: middleware - add add torrent command
+	- add: middleware - cache latest download to dirs
+	- settings: middleware - set extended transmission settings
+	- settings: middleware - support different torrent clients
 Media:
 	Movies:
 		- add
@@ -47,5 +47,5 @@ Media:
 		- add
 	Music:
 		- add
-Pimatic:
-	- add
+Home Automation:
+	- add pimatic frontend
