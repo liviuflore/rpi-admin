@@ -9,84 +9,37 @@
     .controller('SettingsPageCtrl', SettingsPageCtrl);
 
   /** @ngInject */
-  function SettingsPageCtrl($scope, fileReader, $filter, $uibModal, $q, $http, toastr) {
-    /* TBR */
-    $scope.picture = $filter('profilePicture')('face');
-    /* TBR */
-    $scope.removePicture = function () {
-      $scope.picture = $filter('appImage')('theme/no-photo.png');
-      $scope.noPicture = true;
-    };
-    /* TBR */
-    $scope.uploadPicture = function () {
-      var fileInput = document.getElementById('uploadFile');
-      fileInput.click();
-
-    };
-    /* TBR */
-    $scope.unconnect = function (item) {
-      item.href = undefined;
-    };
-    /* TBR */
-    $scope.getFile = function () {
-      fileReader.readAsDataUrl($scope.file, $scope)
-          .then(function (result) {
-            $scope.picture = result;
-          });
-    };
+  function SettingsPageCtrl($scope, fileReader, $filter, $uibModal, mwAPI, toastr) {
+    var vm = this;
 
     /*default settings */
-    $scope.config = {
+    vm.config = {
     };
 
-    function runGetRequest(req) {
-      var deferredQ = $q.defer();
-      $http.get(req).then(function (response) {
-        deferredQ.resolve(response.data);
-      }, function (error) {
-        console.error(error);
-        deferredQ.reject(Error("Failed to get '" + req + "'! [" + error + "]"));
-      });
-      return deferredQ.promise;
-    };
-    function runPostRequest(req, data) {
-      var deferredQ = $q.defer();
-      $http.post(req, data).then(function (response) {
-        deferredQ.resolve(response.data);
-      }, function (error) {
-        console.error(error);
-        deferredQ.reject(Error("Failed to get '" + req + "'! [" + error + "]"));
-      });
-      return deferredQ.promise;
-    };
-
-    $scope.LoadConfig = function () {
-      runGetRequest('/api/config/get').then(function (data) {
+    vm.LoadConfig = function () {
+      mwAPI.getReq('/api/config/get').then(function (data) {
         if (typeof data == 'undefined') {
           console.log("Could not get settings!");
           toastr.error("Could not get settings!", 'Error');
         } else {
-          $scope.config = data;
+          vm.config = data;
         }
       });
     };
-    $scope.LoadConfig();
+    vm.LoadConfig();
 
-    $scope.SaveConfig = function () {
-      runPostRequest('/api/config/save', $scope.config).then(function (data) {
+    vm.SaveConfig = function () {
+      mwAPI.postReq('/api/config/save', vm.config).then(function (data) {
         if (typeof data == 'undefined' || data.response == 'ERROR') {
           console.log("Could not save settings!");
           toastr.error("Could not save settings!", 'Error');
         } else {
-          $scope.LoadConfig();
+          vm.LoadConfig();
           toastr.info("settings saved!", 'Info');
         }
       });
     };
 
-
-    /* TBR */
-    $scope.switches = [true, true, false, true, true, false];
   }
 
 })();

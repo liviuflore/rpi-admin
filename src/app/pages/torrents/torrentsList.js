@@ -8,7 +8,7 @@
     angular.module('BlurAdmin.pages.torrents')
         .service('torrentsList', torrentsList);
     /** @ngInject */
-    function torrentsList($q, $http) {
+    function torrentsList($q, mwAPI) {
 
         var tabs = [{
             label: 'all',
@@ -37,11 +37,8 @@
         }];
         function runRequest(req) {
             var deferredQ = $q.defer();
-            $http.get(req).then(function (response) {
-                deferredQ.resolve(response.data.torrents);
-            }, function (error) {
-                console.error(error);
-                deferredQ.reject(Error("Failed to get '" + req + "'! [" + error + "]"));
+            mwAPI.getReq(req).then(function (response) {
+                deferredQ.resolve(response.torrents);
             });
             return deferredQ.promise;
         };

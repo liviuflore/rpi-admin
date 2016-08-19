@@ -9,15 +9,16 @@
   </span>
 </div>
 <div>
-  <input type="text" class="form-control compose-input default-color"  placeholder="Enter magnet link" ng-model="boxCtrl.magnet">
   <!--<button type="button" ng-click="$dismiss()" class="btn btn-send">or choose .torrent file</button>-->
   <div class="add-torrent-container">
-    <div class="add-torrent-header">Download location:</div>
+    <div class="add-torrent-header">Magnet link:</div>
+    <input type="text" class="form-control compose-input default-color" placeholder="Enter magnet link" ng-model="boxCtrl.magnet">
     <br />
+    <div class="add-torrent-header">Download location:</div>
     <div class="torrent-location">
       <select class="form-control selectpicker with-search" data-live-search="true" title="Select With Search" selectpicker
-              ng-model="selectpickerVm.searchSelectedItem"
-              ng-options="item as item.label for item in selectpickerVm.selectWithSearchItems"></select>
+              ng-model="boxCtrl.searchDownloadLocations"
+              ng-options="item as item.label for item in boxCtrl.searchDownloadLocations"></select>
     </div>
     <br />
     <div class="torrent-options">
@@ -26,13 +27,13 @@
         <span class="checkbox-label">Start automatically</span>
       </label>
     </div>
-    <br />
     <div class="torrent-options">
       <label class="checkbox-inline custom-checkbox nowrap">
         <input type="checkbox" /> <!--ng-model="selectAll" ng-click="ToggleSelectAll()">-->
         <span class="checkbox-label">Delete torrent file after adding</span>
       </label>
     </div>
+    <br />
   </div>
 </div>
 <div class="compose-footer clearfix">

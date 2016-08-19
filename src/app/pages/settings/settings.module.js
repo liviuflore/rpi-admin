@@ -16,6 +16,7 @@
           title: 'Settings',
           templateUrl: 'app/pages/settings/settings.html',
           controller: 'SettingsPageCtrl',
+          controllerAs: "settingsCtrl",
         });
   }
 
