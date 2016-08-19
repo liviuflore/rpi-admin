@@ -1,8 +1,8 @@
 <div class="side-torrent-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
-  <div class="torrents-list-control side-torrent-navigation-item">
+  <div class="torrents-control side-torrent-navigation-item">
     <table style="width: 100%">
       <tr>
-        <td width="34px">
+        <td class="toggle-navigation-container-td">
           <div class="toggle-navigation-container">
             <a href class="collapse-navigation-link ion-navicon"
                ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
@@ -14,13 +14,11 @@
             <span class="checkbox-label">Select All</span>
           </label>
         </td>
-        <td width="24px">
-          <button type="button" class="btn btn-icon action-button" ng-click="LoadTorrents()"><i class="ion-refresh"></i></button>
-        </td>
         <td align="right">
           <button type="button" class="btn btn-icon action-button" ng-click="DeleteTorrents()"><i class="ion-ios-trash"></i></button>
           <button type="button" class="btn btn-icon action-button" ng-click="StopTorrents()"><i class="ion-pause"></i></button>
-          <button type="button" class="btn btn-icon action-last-button" ng-click="StartTorrents()"><i class="ion-play"></i></button>
+          <button type="button" class="btn btn-icon action-button" ng-click="StartTorrents()"><i class="ion-play"></i></button>
+          <button type="button" class="btn btn-icon action-last-button" ng-click="LoadTorrents()"><i class="ion-refresh"></i></button>
         </td>
       </tr>
     </table>

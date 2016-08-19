@@ -162,8 +162,10 @@
   margin-left: 10px;
 }
 
-.torrents-list-control {
+.torrents-control {
   padding: 10px;
+  padding-top: 16px;
+  padding-bottom: 15px;
 
   ul.dropdown-menu {
     margin-top: 5px;
@@ -178,19 +180,17 @@
       box-shadow: none;
     }
   }
-
-  .more-button {
-    width: 60px;
-    font-size: 14px;
-    padding: 6px 5px;
-  }
-
   .action-button {
     margin-left: 10px;
   }
   .action-last-button {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
+  }
+  .more-button {
+    width: 60px;
+    font-size: 14px;
+    padding: 6px 5px;
   }
 
   span.checkbox-label {
@@ -199,7 +199,7 @@
   }
 }
 
-.torrent-container, .side-torrent-navigation {
+.side-torrent-navigation {
   float: left;
   padding: 0 15px;
   position: relative;
@@ -210,16 +210,6 @@
   border-top-right-radius: 5px;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: -1px 0 0 0 rgba(255, 255, 255, 0.12);
-
-  .btn {
-    background-color: transparent;
-    width: auto;
-    &:focus, &:hover, &:active {
-      color: $default-text;
-      opacity: 0.8;
-      box-shadow: none;
-    }
-  }
 }
 
 .side-torrent-navigation {
@@ -254,7 +244,7 @@
 }
 
 .torrent-container {
-  padding: 15px 15px 10px 15px;
+  padding: 10px 15px 10px 15px;
   overflow-x: hidden;
 }
 
@@ -566,9 +556,9 @@
     padding-left: 10px;
   }
 
-  .torrent-container {
+  /*.torrent-container {
     padding-left: 15px;
-  }
+  }*/
 
   .back-button {
     margin-left: 15px;
@@ -589,6 +579,7 @@
 
 @media screen and (min-width: 990px) {
   .torrent-info {
+    margin: 5px auto;
     .name {
       margin-right: 100px;
     }
@@ -609,16 +600,6 @@
 
   .side-torrent-navigation {
     width: calc(100% - 130px);
-  }
-
-  .torrent-container {
-    width: calc(100% - 130px);
-  }
-
-  .torrents-list-control {
-    .custom-checkbox {
-      margin-left: 7px;
-    }
   }
 
   .torrents-body-part {
@@ -663,14 +644,14 @@
     }
   }
 
-  .torrents-list-control {
+  .torrents-control {
     .custom-checkbox {
       margin-left: 5px;
       margin-top: -2px;
     }
   }
 
-  .side-torrent-navigation, .torrent-container {
+  .side-torrent-navigation, {
     &.expanded {
       width: 100%;
       border: none;
@@ -682,6 +663,9 @@
   div.toggle-navigation-container {
     display: inline-block;
   }
+  td.toggle-navigation-container-td {
+    width: 34px;
+  }
 
   .torrents-add-label-container {
     padding-left: 0;
@@ -689,6 +673,14 @@
     font-weight: $font-light;
   }
 
+}
+
+@media screen and (min-width: 560px) {
+  .torrents-control {
+    .custom-checkbox {
+      margin-left: 7px;
+    }
+  }
 }
 
 .compose-header {
@@ -774,6 +766,9 @@
   padding-right: 9px;
 }
 
+.toggle-navigation-container-td {
+    width: 0px;
+}
 .toggle-navigation-container {
   display: none;
   vertical-align: middle;

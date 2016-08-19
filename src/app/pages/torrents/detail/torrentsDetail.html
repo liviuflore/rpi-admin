@@ -1,10 +1,10 @@
-<div class="torrent-container" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
+<div class="side-torrent-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
   <div class="torrent">
-    <div class="row">
-      <table width="100%">
+    <div class="torrents-control side-torrent-navigation-item">
+      <table style="width: 100%">
         <tr>
-          <td style="width:24px">
-            <div class="toggle-navigation-container detail-page">
+          <td class="toggle-navigation-container-td">
+            <div class="toggle-navigation-container">
               <a href class="collapse-navigation-link ion-navicon"
                  ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
             </div>
@@ -14,121 +14,127 @@
               <i class="ion-chevron-left"></i>Back
             </button>
           </td>
-          <td style="padding-right:20px; text-align:right;">
-            <button type="button" class="btn btn-icon action-button" ng-click="LoadTorrent()"><i class="ion-refresh"></i></button>
+          <td style="text-align:right;">
+            <button type="button" class="btn btn-icon action-button" ng-click="DeleteTorrent()"><i class="ion-ios-trash"></i></button>
+            <button type="button" class="btn btn-icon action-button" ng-click="StopTorrent()"><i class="ion-pause"></i></button>
+            <button type="button" class="btn btn-icon action-button" ng-click="StartTorrent()"><i class="ion-play"></i></button>
+            <button type="button" class="btn btn-icon action-last-button" ng-click="LoadTorrent()"><i class="ion-refresh"></i></button>
           </td>
         </tr>
       </table>
     </div>
-    <div class="torrent-info row">
-      <div class="name">
-        <h2 class="name-h">{{detailCtrl.torrent.name}}</h2>
+    <div class="torrent-container">
+      <div class="torrent-info row">
+        <div class="name">
+          <h2 class="name-h">{{detailCtrl.torrent.name}}</h2>
+        </div>
       </div>
-    </div>
-    <div class="torrent-info row">
-      <div class="torrent-details-status">
-        <span class="tag torrents-status">{{detailCtrl.torrent.status | statusText}}</span>
-      </div>
-      <div class="torrent-progress">
-        <div class="progress">
-          <div class="progress-bar torrent-progress-bar-{{detailCtrl.torrent.status | statusText}}" role="progressbar" 
-               aria-valuenow="{{detailCtrl.torrent.percentDone * 100 | mathRound : 2}}" 
-               aria-valuemin="0" aria-valuemax="100" 
-               style="width: {{detailCtrl.torrent.percentDone * 100 | mathRound : 2}}%">
+      <div class="torrent-info row">
+        <div class="torrent-details-status">
+          <span class="tag torrents-status">{{detailCtrl.torrent.status | statusText}}</span>
+        </div>
+        <div class="torrent-progress">
+          <div class="progress">
+            <div class="progress-bar torrent-progress-bar-{{detailCtrl.torrent.status | statusText}}" role="progressbar"
+                 aria-valuenow="{{detailCtrl.torrent.percentDone * 100 | mathRound : 2}}"
+                 aria-valuemin="0" aria-valuemax="100"
+                 style="width: {{detailCtrl.torrent.percentDone * 100 | mathRound : 2}}%">
+            </div>
           </div>
         </div>
       </div>
+      <div class="torrent-info row">
+        <table width="100%">
+          <tr>
+            <td width="30%">
+              <div class="torrent-icon"><i class="ion-arrow-down-a"></i></div>
+              <span>{{detailCtrl.torrent.rateDownload | autoSpeedB}}</span>
+            </td>
+            <td width="30%">
+              <div class="torrent-icon"><i class="ion-arrow-up-a"></i></div>
+              <span>{{detailCtrl.torrent.rateUpload | autoSpeedB}}</span>
+            </td>
+            <td style="text-align:right">
+              <span>{{detailCtrl.torrent.percentDone * 100 | mathRound : 2}} %</span>
+            </td>
+          </tr>
+          <tr height="35px" style="vertical-align:bottom">
+            <td colspan="2">
+              <span class="torrent-details-name-td">ETA: </span>
+              <span class="torrent-details-value-td">{{detailCtrl.torrent.eta | autoTime}}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="line"></div>
+      <div class="torrent-info row torrent-details">
+        <table width="100%">
+          <tr>
+            <td class="torrent-details-name-td"><span>Total size</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.totalSize | autoSizeBytes}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Size wanted</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.wanted[1] | autoSizeBytes}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Downloaded</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.downloadedEver | autoSizeBytes}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Corrupted</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.corruptEver | autoSizeBytes}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Uploaded</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.uploadedEver | autoSizeBytes}}</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="line"></div>
+      <div class="torrent-info row torrent-details">
+        <table width="100%">
+          <tr>
+            <td class="torrent-details-name-td"><span>Peers connected</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.peersConnected}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Seeding to us</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.peersSendingToUs}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Getting from us</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.peersGettingFromUs}}</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="line"></div>
+      <div class="torrent-info row torrent-details">
+        <table width="100%">
+          <tr>
+            <td class="torrent-details-name-td"><span>Added</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.addedDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Started</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.startDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Latest activity</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.activityDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
+          </tr>
+          <tr>
+            <td class="torrent-details-name-td"><span>Done</span></td>
+            <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.doneDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
+          </tr>
+        </table>
+      </div>
+      <div class="line"></div>
+      <div class="torrent-body">
+        <span>todo: FILES</span>
+      </div>
+      <div class="line"></div>
     </div>
-    <div class="torrent-info row">
-      <table width="100%">
-        <tr>
-          <td width="30%">
-            <div class="torrent-icon"><i class="ion-arrow-down-a"></i></div>
-            <span>{{detailCtrl.torrent.rateDownload | autoSpeedB}}</span>
-          </td>
-          <td width="30%">
-            <div class="torrent-icon"><i class="ion-arrow-up-a"></i></div>
-            <span>{{detailCtrl.torrent.rateUpload | autoSpeedB}}</span>
-          </td>
-          <td style="text-align:right">
-            <span>{{detailCtrl.torrent.percentDone * 100 | mathRound : 2}} %</span>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" height="30px">
-            <span>ETA: {{detailCtrl.torrent.eta | autoTime}}</span>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="line"></div>
-    <div class="torrent-info row torrent-details">
-      <table width="100%">
-        <tr>
-          <td class="torrent-details-name-td"><span>Total size</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.totalSize | autoSizeBytes}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Size wanted</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.wanted[1] | autoSizeBytes}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Downloaded</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.downloadedEver | autoSizeBytes}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Corrupted</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.corruptEver | autoSizeBytes}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Uploaded</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.uploadedEver | autoSizeBytes}}</span></td>
-        </tr>
-      </table>
-    </div>
-    <div class="line"></div>
-    <div class="torrent-info row torrent-details">
-      <table width="100%">
-        <tr>
-          <td class="torrent-details-name-td"><span>Peers connected</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.peersConnected}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Seeding to us</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.peersSendingToUs}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Getting from us</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.peersGettingFromUs}}</span></td>
-        </tr>
-      </table>
-    </div>
-    <div class="line"></div>
-    <div class="torrent-info row torrent-details">
-      <table width="100%">
-        <tr>
-          <td class="torrent-details-name-td"><span>Added</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.addedDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Started</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.startDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Latest activity</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.activityDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
-        </tr>
-        <tr>
-          <td class="torrent-details-name-td"><span>Done</span></td>
-          <td class="torrent-details-value-td"><span>{{detailCtrl.torrent.doneDate * 1000 | date : 'yyyy.MM.dd  hh:mm'}}</span></td>
-        </tr>
-      </table>
-    </div>
-    <div class="line"></div>
-    <div class="torrent-body">
-      <span>todo: FILES</span>
-    </div>
-    <div class="line"></div>
   </div>
   <div ng-show="!detailCtrl.torrent">
     <h5 ng-class="text-center">Nothing to show</h5>

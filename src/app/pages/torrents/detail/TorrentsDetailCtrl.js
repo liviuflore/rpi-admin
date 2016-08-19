@@ -9,7 +9,7 @@
     .controller('TorrentsDetailCtrl', TorrentsDetailCtrl);
 
   /** @ngInject */
-  function TorrentsDetailCtrl($stateParams, $scope, torrentsList, toastr) {
+  function TorrentsDetailCtrl($stateParams, $scope, torrentsList, toastr, $timeout) {
     var vm = this;
 
     /* todo: load only one torrent */
@@ -26,6 +26,22 @@
     };
     vm.label = $stateParams.label;
     $scope.LoadTorrent();
+
+    $scope.DeleteTorrent = function () {
+      torrentsList.deleteTorrents([vm.torrent.id], false).then(function (result) {
+        $timeout(function () { $scope.LoadTorrent() }, 200);
+      });
+    };
+    $scope.StopTorrent = function () {
+      torrentsList.stopTorrents([vm.torrent.id]).then(function (result) {
+        $timeout(function () { $scope.LoadTorrent() }, 500);
+      });
+    };
+    $scope.StartTorrent = function () {
+      torrentsList.startTorrents([vm.torrent.id]).then(function (result) {
+        $timeout(function () { $scope.LoadTorrent() }, 200);
+      });
+    };
   }
 
 })();
