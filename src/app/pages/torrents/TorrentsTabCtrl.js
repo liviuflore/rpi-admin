@@ -13,11 +13,10 @@
 
     var vm = this;
     vm.navigationCollapsed = true;
-    vm.showAdd = function(magnet, to, text){
+    vm.showAdd = function(magnet, location){
       addModal.open({
         magnet : magnet,
-        to: to,
-        text: text
+        location: location
       })
     };
 

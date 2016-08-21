@@ -18,7 +18,6 @@
     }
 
     angular.forEach(config_data, function (key, value) {
-        console.log('add constant ' + key);
         config_module.constant(value, key);
     });
 

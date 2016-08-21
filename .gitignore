@@ -60,3 +60,4 @@ build
 /obj/Debug/rpi-admin.njsproj.FileListAbsolute.txt
 /.tmp/partials
 /config.json
+*.cache

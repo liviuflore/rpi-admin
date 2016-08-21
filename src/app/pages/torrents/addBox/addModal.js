@@ -21,11 +21,8 @@
             magnet: function () {
               return options.magnet;
             },
-            to: function () {
-              return options.to;
-            },
-            text: function () {
-              return options.text;
+            location: function () {
+              return options.location;
             }
           }
         });

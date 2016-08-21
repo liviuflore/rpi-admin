@@ -9,27 +9,50 @@
     .controller('addBoxCtrl', addBoxCtrl);
 
   /** @ngInject */
-  function addBoxCtrl(magnet, to, text, mwAPI, toastr) {
+  function addBoxCtrl(magnet, location, mwAPI, toastr) {
     var vm = this;
     vm.magnet = magnet;
-    vm.to = to;
-    vm.text = text;
+    vm.downloadLocation = location;
+    vm.autoStart = true;
+    vm.delFile = false;
 
-    vm.searchDownloadLocations = [
-      { label: '~/downloads/completed', value: 1 },
+    vm.downloadLocations = [
+      '~/downloads/completed',
     ];
 
     // TODO: load searchDownloadLocations from MW
     vm.UpdateDownloadLocations = function () {
-      mwAPI.getReq('/api/config/get').then(function (data) {
+      mwAPI.getReq('/api/torrents/cacheDownloadDir').then(function (data) {
         if (typeof data == 'undefined') {
           console.log("Could not get settings!");
           toastr.error("Could not get settings!", 'Error');
         } else {
-          //vm.config = data;
+          data.forEach(function (item) {
+            if (item && !(typeof item !== 'object' && item !== null)) {
+              if (item.ddir && (item.ddir !== null)) {
+                console.log('add   location: ' + item.ddir);
+                vm.downloadLocations.push(item.ddir);
+              }
+            }
+          });
         }
       });
     };
     vm.UpdateDownloadLocations();
+
+    vm.AddTorrent = function () {
+      var torrent = {
+        magnet: vm.magnet,
+        ddir: vm.downloadLocation,
+        autoStart: vm.autoStart,
+        delFile: vm.delFile
+      };
+      mwAPI.postReq('/api/torrents/addTorrent', torrent).then(function (data) {
+        if (typeof data == 'undefined' || data.response == 'ERROR') {
+          console.log("Could not save location cache");
+          toastr.error("Could not save settings!", 'Error');
+        }
+      });
+    };
   }
 })();

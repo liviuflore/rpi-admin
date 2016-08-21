@@ -2,9 +2,13 @@
 
 var config = require('./config').config;
 var log = require('./log');
+var cache = require('./cache');
 
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+router.use(bodyParser.json());
+
 
 var Transmission = require("transmission");
 var tconfig = {
@@ -86,6 +90,62 @@ router.all('/start/:torrents', function (req, res) {
         res.json({ 'result': 'OK' });
       }
     });
+});
+
+var tcache = new cache('torrents_location.cache');
+tcache.Load();
+
+router.get('/cacheDownloadDir', function (req, res) {
+  log.d("get cacheDownloadDir: " + JSON.stringify(tcache.data, null, 4));
+  res.json(tcache.data);
+});
+
+function AddDdirToCache(addir) {
+  if (addir == '')
+    return;
+
+  var exists = false;
+  tcache.data.forEach(function (item) {
+    if (item && !(typeof item !== 'object' && item !== null)) {
+      if (item.ddir && (item.ddir !== null) && item.ddir == addir) {
+        exists = true;
+      }
+    }
+  });
+  if (!exists) {
+    log.d('location cache add: ' + addir);
+    tcache.data.push({ ddir: addir });
+    tcache.Save();
+  }
+}
+
+router.post('/addTorrent', function (req, res) {
+  var add = req.body;
+  log.d("add torrent: " + JSON.stringify(add, null, 4));
+  if (!add || (typeof add !== 'object' && add !== null)) {
+    log.d("add torrent failed");
+    res.json({ 'result': 'ERROR' });
+    return;
+  }
+  if (add.magnet == '' || add.ddir == '') {
+    log.d("add torrent failed");
+    res.json({ 'result': 'ERROR' });
+    return;
+  }
+
+  // add dir to cache
+  AddDdirToCache(add.ddir);
+
+  // add magnet link to transmission
+  transmission.addUrl(add.magnet, { "download-dir": add.ddir }, function (err, arg) {
+    if (err) {
+      log.e(err);
+      res.json({ 'result': 'ERROR' });
+    } else {
+      res.json({ 'result': 'OK' });
+    }
+  });
+
 });
 
 module.exports = router;

@@ -16,20 +16,18 @@
     <br />
     <div class="add-torrent-header">Download location:</div>
     <div class="torrent-location">
-      <select class="form-control selectpicker with-search" data-live-search="true" title="Select With Search" selectpicker
-              ng-model="boxCtrl.searchDownloadLocations"
-              ng-options="item as item.label for item in boxCtrl.searchDownloadLocations"></select>
+      <input type="text" class="form-control" id="input01" ng-model="boxCtrl.downloadLocation" uib-typeahead="dir for dir in boxCtrl.downloadLocations | filter:$viewValue | limitTo:8">
     </div>
     <br />
     <div class="torrent-options">
       <label class="checkbox-inline custom-checkbox nowrap">
-        <input type="checkbox" /> <!--ng-model="selectAll" ng-click="ToggleSelectAll()">-->
+        <input type="checkbox" ng-model="boxCtrl.autoStart"/>
         <span class="checkbox-label">Start automatically</span>
       </label>
     </div>
     <div class="torrent-options">
       <label class="checkbox-inline custom-checkbox nowrap">
-        <input type="checkbox" /> <!--ng-model="selectAll" ng-click="ToggleSelectAll()">-->
+        <input type="checkbox" ng-model="boxCtrl.delFile"/>
         <span class="checkbox-label">Delete torrent file after adding</span>
       </label>
     </div>
@@ -37,7 +35,7 @@
   </div>
 </div>
 <div class="compose-footer clearfix">
-  <button type="button" ng-click="$dismiss()" class="btn btn-send">Add</button>
+  <button type="button" ng-click="boxCtrl.AddTorrent();$dismiss()" class="btn btn-send">Add</button>
   <!--<text-angular-toolbar ta-toolbar-class="toolbarFooter" name="toolbarFooter" ta-toolbar="[['insertLink', 'insertImage', 'html', 'quote','insertVideo']]"></text-angular-toolbar>-->
   <div class="footer-controls">
     <i class="footer-control-first compose-footer-icon ion-arrow-down-b"></i>
