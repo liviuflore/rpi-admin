@@ -35,9 +35,6 @@ Login/Logout:
 	- add create user (user/admin)
 Torrents:
 	- details: page - add torrent files
-	- add: modal - finish UI
-	- add: middleware - add add torrent command
-	- add: middleware - cache latest download to dirs
 	- settings: middleware - set extended transmission settings
 	- settings: middleware - support different torrent clients
 Media:
