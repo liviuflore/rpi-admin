@@ -131,7 +131,22 @@
       </div>
       <div class="line"></div>
       <div class="torrent-body">
-        <span>todo: FILES</span>
+        <table>
+          <tr ng-repeat="f in detailCtrl.torrent.files">
+            <td class="torrent-file-item">
+              <div >{{f.name}}</div>
+              <div class="torrent-file-progress">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar"
+                       aria-valuenow="{{(f.bytesCompleted / f.length) * 100}}"
+                       aria-valuemin="0" aria-valuemax="100"
+                       style="width: {{(f.bytesCompleted / f.length) * 100}}%">
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
       <div class="line"></div>
     </div>

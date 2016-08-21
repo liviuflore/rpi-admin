@@ -34,7 +34,6 @@ Login/Logout:
 	- add forms
 	- add create user (user/admin)
 Torrents:
-	- details: page - add torrent files
 	- settings: middleware - set extended transmission settings
 	- settings: middleware - support different torrent clients
 Media:
