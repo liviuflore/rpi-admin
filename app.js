@@ -9,7 +9,7 @@ var app = express();
 /* api routes */
 var configRouter = require('./middleware/config').router;
 var systemRouter = require('./middleware/system');
-//var osmcRouter = require('./middleware/osmc');
+var osmcRouter = require('./middleware/osmc');
 var torrentsRouter = require('./middleware/transmission');
 //var tvshowsRouter = require('./middleware/tvshows');
 //var pimaticRouter = require('./middleware/pimatic');
@@ -26,7 +26,7 @@ app.use(express.static('./release'));
 /* serve API */
 app.use('/api/config', configRouter);
 app.use('/api/system', systemRouter);
-//router.use('/api/osmc', osmcRouter);
+app.use('/api/osmc', osmcRouter);
 app.use('/api/torrents', torrentsRouter);
 //router.use('/api/tvshows', tvshowsRouter);
 //router.use('/api/pimatic', pimaticRouter);

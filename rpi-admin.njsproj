@@ -74,6 +74,7 @@
     <Compile Include="middleware\cache.js" />
     <Compile Include="middleware\config.js" />
     <Compile Include="middleware\log.js" />
+    <Compile Include="middleware\osmc.js" />
     <Compile Include="middleware\osutils.js" />
     <Compile Include="middleware\system.js" />
     <Compile Include="middleware\transmission.js" />
@@ -670,6 +671,7 @@
     <Folder Include="typings\globals\socket.io\" />
     <Folder Include="typings\globals\wiredep\" />
     <Folder Include="typings\globals\wrench\" />
+    <Folder Include="typings\globals\ws\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="typings\globals\body-parser\index.d.ts" />
@@ -708,6 +710,7 @@
     <TypeScriptCompile Include="typings\globals\socket.io\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\wiredep\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\wrench\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\ws\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

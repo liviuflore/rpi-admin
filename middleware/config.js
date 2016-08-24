@@ -28,6 +28,10 @@ var config = {
     downLimit: 1000,
     downLimitEn: false,
   },
+  xbmc: {
+    host: '192.168.1.21',
+    port: 9090
+  },
 }
 
 function extend(origin, add) {
