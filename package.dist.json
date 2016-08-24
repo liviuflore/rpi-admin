@@ -1,0 +1,10 @@
+{
+  "name": "blur_admin",
+  "version": "1.2.0",
+  "devDependencies": {
+    "express": "~4.14.0",
+    "body-parser": "~1.15.2",
+    "gulp-util": "~3.0.6",
+    "transmission": "~0.4.5"
+  }
+}

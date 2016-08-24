@@ -47,6 +47,7 @@
     <Content Include="src\app\pages\torrents\detail\torrentsDetail.html" />
     <Content Include="src\app\pages\torrents\list\torrentsList.html" />
     <Content Include="src\app\pages\torrents\torrents.html" />
+    <Content Include="src\app\pages\tvShows\tvshows.html" />
     <Content Include="src\auth.html" />
     <Content Include="src\index.html" />
     <Content Include="src\reg.html" />
@@ -109,7 +110,6 @@
     <Content Include="src\sass\main.scss" />
     <Content Include="src\sass\README.md" />
     <Compile Include="src\app\config\config.js" />
-    <Compile Include="src\app\config\mwAPI.js" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPie.directive.js" />
     <Compile Include="src\app\pages\dashboard\dashboardPiStatsPie\dashboardPiStatsPieCtrl.js" />
     <Compile Include="src\app\pages\pages.module.js" />
@@ -122,6 +122,10 @@
     <Compile Include="src\app\pages\torrents\torrents.module.js" />
     <Compile Include="src\app\pages\torrents\torrentsList.js" />
     <Compile Include="src\app\pages\torrents\TorrentsTabCtrl.js" />
+    <Compile Include="src\app\pages\tvShows\detail\TorrentsDetailCtrl.js" />
+    <Compile Include="src\app\pages\tvShows\list\TorrentsListCtrl.js" />
+    <Compile Include="src\app\pages\tvshows\tvshows.module.js" />
+    <Compile Include="src\app\pages\tvshows\TvshowsTabCtrl.js" />
     <Compile Include="src\app\theme\filters\text\math.js" />
     <Compile Include="src\app\theme\theme.config.js" />
     <Compile Include="src\app\theme\theme.configProvider.js" />
@@ -576,6 +580,7 @@
     <Folder Include="src\app\pages\torrents\addBox\" />
     <Folder Include="src\app\pages\torrents\detail\" />
     <Folder Include="src\app\pages\torrents\list\" />
+    <Folder Include="src\app\pages\tvShows\" />
     <Folder Include="src\app\pages\ui" />
     <Folder Include="src\app\pages\ui\alerts" />
     <Folder Include="src\app\pages\ui\buttons" />

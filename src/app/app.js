@@ -14,6 +14,7 @@ angular.module('BlurAdmin', [
   'angular-progress-button-styles',
 
   'BlurAdmin.config',
+  'BlurAdmin.services',
   'BlurAdmin.theme',
   'BlurAdmin.pages'
 ]);

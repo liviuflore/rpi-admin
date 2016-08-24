@@ -45,7 +45,7 @@
     "body-parser": "~1.15.2",
     "transmission": "~0.4.5",
     "ws": "^1.1.1",
-    "simple-xbmc": "^0.9.5",
+    "simple-xbmc": "^0.9.5"
   },
   "scripts": {
     "postinstall": "bower install"

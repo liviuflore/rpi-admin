@@ -9,7 +9,7 @@
     .controller('TorrentsDetailCtrl', TorrentsDetailCtrl);
 
   /** @ngInject */
-  function TorrentsDetailCtrl($stateParams, $scope, torrentsList, toastr, $timeout) {
+  function TorrentsDetailCtrl($stateParams, $scope, torrentsList, toastr, $timeout, log) {
     var vm = this;
 
     /* todo: load only one torrent */
@@ -19,7 +19,7 @@
                 vm.torrent = torrentsList.filterById(torrents, $stateParams.id);
             }
             else {
-                console.log("Could not get specified torrent. Check connection settings!");
+                log.e("Could not get specified torrent. Check connection settings!");
                 toastr.error("Could not get specified torrent. Check connection settings!", 'Error');
             }
         });

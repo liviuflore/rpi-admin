@@ -9,7 +9,7 @@
     .controller('SettingsPageCtrl', SettingsPageCtrl);
 
   /** @ngInject */
-  function SettingsPageCtrl($scope, fileReader, $filter, $uibModal, mwAPI, toastr) {
+  function SettingsPageCtrl($scope, fileReader, $filter, $uibModal, mwAPI, toastr, log) {
     var vm = this;
 
     /*default settings */
@@ -19,7 +19,7 @@
     vm.LoadConfig = function () {
       mwAPI.getReq('/api/config/get').then(function (data) {
         if (typeof data == 'undefined') {
-          console.log("Could not get settings!");
+          log.e("Could not get settings!");
           toastr.error("Could not get settings!", 'Error');
         } else {
           vm.config = data;
@@ -31,7 +31,7 @@
     vm.SaveConfig = function () {
       mwAPI.postReq('/api/config/save', vm.config).then(function (data) {
         if (typeof data == 'undefined' || data.response == 'ERROR') {
-          console.log("Could not save settings!");
+          log.e("Could not save settings!");
           toastr.error("Could not save settings!", 'Error');
         } else {
           vm.LoadConfig();

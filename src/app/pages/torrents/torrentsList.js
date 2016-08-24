@@ -8,7 +8,7 @@
     angular.module('BlurAdmin.pages.torrents')
         .service('torrentsList', torrentsList);
     /** @ngInject */
-    function torrentsList($q, mwAPI) {
+    function torrentsList($q, mwAPI, log) {
 
         var tabs = [{
             label: 'all',
@@ -45,20 +45,20 @@
 
         return {
             getTorrents: function () {
-                console.log("get torrents");
+                log.d("get torrents");
                 return runRequest('/api/torrents/list');
             },
             deleteTorrents: function (list, deleteData) {
                 deleteData = typeof deleteData !== 'undefined' ? deleteData : false;
-                console.log("delete torrents " + list);
+                log.d("delete torrents " + list);
                 return runRequest('/api/torrents/delete/' + (list.length == 0 ? 'none' : list) + '/' + deleteData);
             },
             stopTorrents: function (list) {
-                console.log("stop torrents " + list);
+                log.d("stop torrents " + list);
                 return runRequest('/api/torrents/stop/' + (list.length == 0 ? 'none' : list));
             },
             startTorrents: function (list) {
-                console.log("start torrents " + list);
+                log.d("start torrents " + list);
                 return runRequest('/api/torrents/start/' + (list.length == 0 ? 'none' : list));
             },
             getTabs: function () {

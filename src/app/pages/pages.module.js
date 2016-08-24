@@ -10,6 +10,7 @@
 
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.torrents',
+    'BlurAdmin.pages.tvshows',
     'BlurAdmin.pages.ui',
     'BlurAdmin.pages.components',
     'BlurAdmin.pages.form',

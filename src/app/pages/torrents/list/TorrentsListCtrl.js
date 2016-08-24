@@ -76,7 +76,7 @@
     .controller('TorrentsListCtrl', TorrentsListCtrl);
 
   /** @ngInject */
-  function TorrentsListCtrl($scope, $stateParams, $timeout, torrentsList, toastr) {
+  function TorrentsListCtrl($scope, $stateParams, $timeout, torrentsList, toastr, log) {
     var vm = this;
     vm.torrents = [];
     vm.label = $stateParams.label;
@@ -94,7 +94,7 @@
                 });
             }
             else {
-                console.log("Could not get torrents. Check connection settings!");
+                log.e("Could not get torrents. Check connection settings!");
                 toastr.error("Could not get torrents. Check connection settings!", 'Error');
             }
         });

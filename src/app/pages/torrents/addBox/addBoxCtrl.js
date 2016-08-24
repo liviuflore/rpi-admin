@@ -9,7 +9,7 @@
     .controller('addBoxCtrl', addBoxCtrl);
 
   /** @ngInject */
-  function addBoxCtrl(magnet, location, mwAPI, toastr) {
+  function addBoxCtrl(magnet, location, mwAPI, toastr, log) {
     var vm = this;
     vm.magnet = magnet;
     vm.downloadLocation = location;
@@ -24,13 +24,13 @@
     vm.UpdateDownloadLocations = function () {
       mwAPI.getReq('/api/torrents/cacheDownloadDir').then(function (data) {
         if (typeof data == 'undefined') {
-          console.log("Could not get settings!");
+          log.e("Could not get settings!");
           toastr.error("Could not get settings!", 'Error');
         } else {
           data.forEach(function (item) {
             if (item && !(typeof item !== 'object' && item !== null)) {
               if (item.ddir && (item.ddir !== null)) {
-                console.log('add   location: ' + item.ddir);
+                log.d('add   location: ' + item.ddir);
                 vm.downloadLocations.push(item.ddir);
               }
             }
@@ -49,7 +49,7 @@
       };
       mwAPI.postReq('/api/torrents/addTorrent', torrent).then(function (data) {
         if (typeof data == 'undefined' || data.response == 'ERROR') {
-          console.log("Could not save location cache");
+          log.e("Could not save location cache");
           toastr.error("Could not save settings!", 'Error');
         }
       });

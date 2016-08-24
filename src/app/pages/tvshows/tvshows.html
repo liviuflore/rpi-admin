@@ -1,0 +1,12 @@
+<div class="row torrents-client-container transparent">
+  <div class="col-md-12">
+    <div ba-panel ba-panel-class="panel torrents-panel">
+      <div class="letter-layout">
+        <div ng-repeat="e in tabCtrl.recentEpisodes" ui-sref-active="active" class="torrents-navigation"
+             ui-sref="tvshows" ng-click="selectEpisode(e.episodeid)">
+          {{e.showtitle}} - {{e.label}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

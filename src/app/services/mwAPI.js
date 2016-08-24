@@ -2,11 +2,13 @@
 
   'use strict';
 
-  angular.module('BlurAdmin.config')
+  angular.module('BlurAdmin.services')
     .service('mwAPI', apiService);
 
   /** @ngInject */
-  function apiService($q, $http) {
+  function apiService($q, $http, log) {
+    log.d('init apiService');
+
     function runGetRequest(req) {
       var deferredQ = $q.defer();
       $http.get(req).then(function (response) {
