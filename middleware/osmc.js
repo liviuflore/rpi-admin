@@ -16,9 +16,9 @@ var xbmcconfig = {
 
 var SimpleXBMC = require('simple-xbmc');
 var xbmc = new SimpleXBMC(xbmcconfig.host, xbmcconfig.port);
-xbmc.videoLibrary.getRecentlyAddedEpisodes({ "limits": { "start": 0, "end": 5 }, "properties": ["title", "showtitle", "tvshowid"] }, function (response) {
-  log.d(response);
-});
+//xbmc.videoLibrary.getRecentlyAddedEpisodes({ "limits": { "start": 0, "end": 5 }, "properties": ["title", "showtitle", "tvshowid"] }, function (response) {
+//  log.d(response);
+//});
 
 
 router.get('/stats', function (req, res) {

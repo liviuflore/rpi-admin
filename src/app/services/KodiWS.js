@@ -7,9 +7,11 @@
 
   /** @ngInject */
   function KodiWSService($q, $window, KODI_CONFIG, log) {
-    log.d('init KodiWSService');
+    log.d('init KodiWSService ' + window.location.host);
 
-    var ws = new WebSocket('ws://' + KODI_CONFIG.HOST + ':' + KODI_CONFIG.PORT + '/jsonrpc');
+    //var ws = new WebSocket('ws://' + KODI_CONFIG.HOST + ':' + KODI_CONFIG.PORT + '/jsonrpc');
+    var ws = new WebSocket('ws://localhost:5001/');
+    //var ws = new WebSocket('ws://' + window.location.host + '/api');
 
     ws.onopen = function () {
       log.d('Connected to Kodi Web Socket');

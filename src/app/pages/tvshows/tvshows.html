@@ -1,11 +1,29 @@
-<div class="row torrents-client-container transparent">
+<div class="row transparent tvshows-container">
   <div class="col-md-12">
-    <div ba-panel ba-panel-class="panel torrents-panel">
-      <div class="letter-layout">
-        <div ng-repeat="e in tabCtrl.recentEpisodes" ui-sref-active="active" class="torrents-navigation"
-             ui-sref="tvshows" ng-click="selectEpisode(e.episodeid)">
-          {{e.showtitle}} - {{e.label}}
-        </div>
+    <div ba-panel ba-panel-title="Recent Episodes" ba-panel-class="panel tvshows-panel" ba-panel-refresh="refresh-data">
+      <div class="tvshows-episode-list-container">
+        <table class="table table-hover tvshows-list-table">
+          <tr ng-repeat="e in tabCtrl.recentEpisodes">
+            <!--ng-click="selectEpisode(e.episodeid)"-->
+            <td>
+              <div class="tvshows-list-item">
+                <table>
+                  <tr>
+                    <td>
+                      <img ng-src="{{e.art['season.poster'] | artUrl}}" class="episode-poster">
+                    </td>
+                    <td style="vertical-align:top; width:100%">
+                      <div class="episode-showtitle">{{e.showtitle}}</div>
+                      <div class="episode-seasoninfo">season {{e.season}}&nbsp;&nbsp;&nbsp; episode {{e.episode}}</div>
+                      <div class="episode-title">{{e.title}}</div>
+                      <div class="episode-date">{{e.dateadded}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

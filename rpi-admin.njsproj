@@ -104,6 +104,7 @@
     <Content Include="src\sass\app\_torrents.scss" />
     <Content Include="src\sass\app\_tplSkinPanel.scss" />
     <Content Include="src\sass\app\_tree.scss" />
+    <Content Include="src\sass\app\_tvshows.scss" />
     <Content Include="src\sass\app\_typography.scss" />
     <Content Include="src\sass\auth.scss" />
     <Content Include="src\sass\common.scss" />
@@ -122,10 +123,12 @@
     <Compile Include="src\app\pages\torrents\torrents.module.js" />
     <Compile Include="src\app\pages\torrents\torrentsList.js" />
     <Compile Include="src\app\pages\torrents\TorrentsTabCtrl.js" />
-    <Compile Include="src\app\pages\tvShows\detail\TorrentsDetailCtrl.js" />
-    <Compile Include="src\app\pages\tvShows\list\TorrentsListCtrl.js" />
     <Compile Include="src\app\pages\tvshows\tvshows.module.js" />
     <Compile Include="src\app\pages\tvshows\TvshowsTabCtrl.js" />
+    <Compile Include="src\app\services\KodiWS.js" />
+    <Compile Include="src\app\services\logging.js" />
+    <Compile Include="src\app\services\mwAPI.js" />
+    <Compile Include="src\app\services\services.module.js" />
     <Compile Include="src\app\theme\filters\text\math.js" />
     <Compile Include="src\app\theme\theme.config.js" />
     <Compile Include="src\app\theme\theme.configProvider.js" />
@@ -581,6 +584,8 @@
     <Folder Include="src\app\pages\torrents\detail\" />
     <Folder Include="src\app\pages\torrents\list\" />
     <Folder Include="src\app\pages\tvShows\" />
+    <Folder Include="src\app\pages\tvShows\detail\" />
+    <Folder Include="src\app\pages\tvShows\list\" />
     <Folder Include="src\app\pages\ui" />
     <Folder Include="src\app\pages\ui\alerts" />
     <Folder Include="src\app\pages\ui\buttons" />
@@ -598,6 +603,7 @@
     <Folder Include="src\app\pages\ui\slider" />
     <Folder Include="src\app\pages\ui\tabs" />
     <Folder Include="src\app\pages\ui\typography" />
+    <Folder Include="src\app\services\" />
     <Folder Include="src\app\theme" />
     <Folder Include="src\app\theme\components" />
     <Folder Include="src\app\theme\components\backTop" />
