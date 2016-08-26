@@ -5,8 +5,10 @@ var log = require('./log');
 var cache = require('./cache');
 
 var express = require('express');
-var router = express.Router();
+var httpProxy = require('http-proxy');
 var bodyParser = require('body-parser');
+
+var router = express.Router();
 router.use(bodyParser.json());
 
 var xbmcconfig = {
@@ -14,27 +16,16 @@ var xbmcconfig = {
   port: config.xbmc.port,
 };
 
-var SimpleXBMC = require('simple-xbmc');
-var xbmc = new SimpleXBMC(xbmcconfig.host, xbmcconfig.port);
-//xbmc.videoLibrary.getRecentlyAddedEpisodes({ "limits": { "start": 0, "end": 5 }, "properties": ["title", "showtitle", "tvshowid"] }, function (response) {
-//  log.d(response);
-//});
+
+/* create proxy for kodi json-rpc */
+log.i("starting ws proxy server on port " + 5001);
+httpProxy.createServer({
+  target: 'ws://' + config.xbmc.host + ':' + config.xbmc.port + '/jsonrpc',
+  ws: true
+}).listen(5001);
 
 
 router.get('/stats', function (req, res) {
-  log.d("xbmc getRecentlyAddedEpisodes");
-  xbmc.videoLibrary.getRecentlyAddedEpisodes({ "properties": ["title", "showtitle", "tvshowid"] }, function (response) {
-    log.d(response);
-  });
-
-    //transmission.sessionStats(function (err, result) {
-    //    if (err) {
-    //        log.e(err);
-    //        res.json({ 'result': 'ERROR' });
-    //    } else {
-    //        res.json(result);
-    //    }
-    //});
   res.json({ 'result': 'OK' });
 });
 
