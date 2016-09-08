@@ -21,7 +21,7 @@
     .controller('TvshowsTabCtrl', TvshowsTabCtrl);
 
   /** @ngInject */
-  function TvshowsTabCtrl($scope, KodiWS, log) {
+  function TvshowsTabCtrl($scope, KodiWS, log, toastr) {
     log.d('init TvshowsTabCtrl');
 
     var vm = this;
@@ -42,6 +42,7 @@
     $scope.getRecentEpisodes();
 
     $('.refresh-data').on('click', function () {
+      toastr.info('Refreshing recent episodes', 'Info');
       $scope.getRecentEpisodes();
     });
   }

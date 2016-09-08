@@ -19,11 +19,24 @@ var xbmcconfig = {
 
 /* create proxy for kodi json-rpc */
 log.i("starting ws proxy server on port " + 5001);
-httpProxy.createServer({
+var proxy = httpProxy.createServer({
   target: 'ws://' + config.xbmc.host + ':' + config.xbmc.port + '/jsonrpc',
   ws: true
-}).listen(5001);
+});
+proxy.listen(5001);
 
+proxy.on('error', function (err, req, res) {
+  log.d('kodiProxy: on error: ' + err);
+});
+proxy.on('open', function (proxySocket) {
+  log.d('kodiProxy: on open');
+});
+proxy.on('close', function (res, socket, head) {
+  log.d('kodiProxy: on close');
+});
+proxy.on('upgrade', function (req, socket, head) {
+  log.d('kodiProxy: on upgrade');
+});
 
 router.get('/stats', function (req, res) {
   res.json({ 'result': 'OK' });

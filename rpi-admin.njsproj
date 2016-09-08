@@ -652,6 +652,7 @@
     <Folder Include="typings\globals\del\" />
     <Folder Include="typings\globals\estraverse\" />
     <Folder Include="typings\globals\express\" />
+    <Folder Include="typings\globals\gulp-angular-templatecache\" />
     <Folder Include="typings\globals\gulp-autoprefixer\" />
     <Folder Include="typings\globals\gulp-debug\" />
     <Folder Include="typings\globals\gulp-filter\" />
@@ -691,6 +692,7 @@
     <TypeScriptCompile Include="typings\globals\del\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\estraverse\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\express\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\gulp-angular-templatecache\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-autoprefixer\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-debug\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\gulp-filter\index.d.ts" />
